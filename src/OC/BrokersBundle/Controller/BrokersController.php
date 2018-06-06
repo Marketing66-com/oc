@@ -128,6 +128,56 @@ class BrokersController extends Controller
 
         // ... do something, like pass the $product object into a template
     }
+    /**
+     * @Route("/showglobalBrokers",name="showglobalBrokers")
+     */
+    public function showglobalBrokersAction()
+    {
+        $products = $this->getDoctrine()
+            ->getRepository('BrokersBundle:GlobalParent')
+            ->findAll();
+
+        return $this->render('BrokersBundle:Default:index.html.twig',[
+            'brokers' => $products
+        ]);
+
+
+        // ... do something, like pass the $product object into a template
+    }
+
+    /**
+     * @Route("/showparentBrokers",name="showparentBrokers")
+     */
+    public function showparentBrokersAction()
+    {
+        $products = $this->getDoctrine()
+            ->getRepository('BrokersBundle:BrokerPays')
+            ->findAllInheritance();
+        dump($products);
+        return $this->render('BrokersBundle:Default:index.html.twig',[
+            'brokers' => $products
+        ]);
+
+
+        // ... do something, like pass the $product object into a template
+    }
+
+    /**
+     * @Route("/showcoinBrokers",name="showcoinBrokers")
+     */
+    public function showcoinBrokersAction()
+    {
+        $products = $this->getDoctrine()
+            ->getRepository('BrokersBundle:BrokerCountryCoin')
+            ->findAll();
+
+        return $this->render('BrokersBundle:Default:index.html.twig',[
+            'brokers' => $products
+        ]);
+        dump($products);
+
+        // ... do something, like pass the $product object into a template
+    }
 
 
 

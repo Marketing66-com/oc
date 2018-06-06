@@ -1,0 +1,70 @@
+<?php
+
+namespace OC\BrokersBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcAdvert
+ *
+ * @ORM\Table(name="oc_advert", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_B1931753DA5256D", columns={"image_id"})})
+ * @ORM\Entity
+ */
+class OcAdvert
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="author", type="string", length=255, nullable=false)
+     */
+    private $author;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", length=0, nullable=false)
+     */
+    private $content;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="published", type="boolean", nullable=false)
+     */
+    private $published;
+
+    /**
+     * @var \OcImage
+     *
+     * @ORM\ManyToOne(targetEntity="OcImage")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     * })
+     */
+    private $image;
+
+
+}

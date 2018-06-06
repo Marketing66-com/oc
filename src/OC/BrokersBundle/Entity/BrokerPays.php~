@@ -1,0 +1,81 @@
+<?php
+
+namespace OC\BrokersBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BrokerPays
+ *
+ * @ORM\Table(name="broker_pays")
+ * @ORM\Entity
+ */
+class BrokerPays
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="name", type="string", length=25, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="logo", type="string", length=25, nullable=true)
+     */
+    private $logo;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="review", type="string", length=25, nullable=true)
+     */
+    private $review;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="link", type="string", length=25, nullable=true)
+     */
+    private $link;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="score", type="integer", nullable=true)
+     */
+    private $score;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="crypto", type="string", length=25, nullable=true)
+     */
+    private $crypto;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="display_name", type="string", length=25, nullable=true)
+     */
+    private $displayName;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="parent", type="string", length=25, nullable=true)
+     */
+    private $parent;
+
+
+}

@@ -8,86 +8,39 @@ use Doctrine\ORM\Mapping as ORM;
  * BrokersArray
  *
  * @ORM\Table(name="brokers_array")
- * @ORM\Entity(repositoryClass="OC\BrokersBundle\Repository\BrokersArrayRepository")
+ * @ORM\Entity
  */
 class BrokersArray
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="array", type="array")
+     * @ORM\Column(name="array", type="array", length=0, nullable=false)
      */
     private $array;
 
-
-
-
-
     /**
-     * @var array2
+     * @var json
      *
-     * @ORM\Column(name="array2", type="json")
+     * @ORM\Column(name="array2", type="json", nullable=false)
      */
     private $array2;
 
-
-
     /**
-     * @var array3
+     * @var array
      *
-     * @ORM\Column(name="array3", type="json_array")
+     * @ORM\Column(name="array3", type="json_array", length=0, nullable=false)
      */
     private $array3;
-
-    /**
-     * @return array
-     */
-    public function getArray2()
-    {
-        return $this->array2;
-    }
-
-    /**
-     * @param array $array2
-     */
-    public function setArray2($array2)
-    {
-        $this->array2 = $array2;
-    }
-
-    /**
-     * @return array
-     */
-    public function getArray3()
-    {
-        return $this->array3;
-    }
-
-    /**
-     * @param array $array3
-     */
-    public function setArray3($array3)
-    {
-        $this->array3 = $array3;
-    }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -123,5 +76,53 @@ class BrokersArray
     public function getArray()
     {
         return $this->array;
+    }
+
+    /**
+     * Set array2.
+     *
+     * @param json $array2
+     *
+     * @return BrokersArray
+     */
+    public function setArray2($array2)
+    {
+        $this->array2 = $array2;
+
+        return $this;
+    }
+
+    /**
+     * Get array2.
+     *
+     * @return json
+     */
+    public function getArray2()
+    {
+        return $this->array2;
+    }
+
+    /**
+     * Set array3.
+     *
+     * @param array $array3
+     *
+     * @return BrokersArray
+     */
+    public function setArray3($array3)
+    {
+        $this->array3 = $array3;
+
+        return $this;
+    }
+
+    /**
+     * Get array3.
+     *
+     * @return array
+     */
+    public function getArray3()
+    {
+        return $this->array3;
     }
 }

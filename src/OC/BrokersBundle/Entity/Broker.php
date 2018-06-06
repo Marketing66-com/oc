@@ -7,95 +7,76 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Broker
  *
- * @ORM\Table(name="broker")
- * @ORM\Entity(repositoryClass="OC\BrokersBundle\Repository\BrokerRepository")
+ * @ORM\Table(name="broker", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_F6AAF03B5E237E06", columns={"name"})})
+ * @ORM\Entity
  */
 class Broker
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="site_link", type="string", length=255)
+     * @ORM\Column(name="site_link", type="string", length=255, nullable=false)
      */
     private $siteLink;
 
     /**
-     * @return string
-     */
-    public function getReviewLink()
-    {
-        return $this->reviewLink;
-    }
-
-    /**
-     * @param string $reviewLink
-     */
-    public function setReviewLink($reviewLink)
-    {
-        $this->reviewLink = $reviewLink;
-    }
-
-
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="review_link", type="string", length=255)
-     */
-    private $reviewLink;
-
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="crypto_image", type="string", length=255)
+     * @ORM\Column(name="crypto_image", type="string", length=255, nullable=false)
      */
     private $cryptoImage;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=255)
+     * @ORM\Column(name="logo", type="string", length=255, nullable=false)
      */
     private $logo;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="min_depot", type="float")
+     * @ORM\Column(name="min_depot", type="float", precision=10, scale=0, nullable=false)
      */
     private $minDepot;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="regulation_img", type="string", length=255)
+     * @ORM\Column(name="regulation_img", type="string", length=255, nullable=false)
      */
     private $regulationImg;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="user_score", type="float")
+     * @ORM\Column(name="user_score", type="float", precision=10, scale=0, nullable=false)
      */
     private $userScore;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="review_link", type="string", length=255, nullable=false)
+     */
+    private $reviewLink;
+
 
 
     /**
@@ -276,25 +257,27 @@ class Broker
         return $this->userScore;
     }
 
-
-
     /**
-     * Get any.
+     * Set reviewLink.
      *
+     * @param string $reviewLink
+     *
+     * @return Broker
      */
-    public function getAny($attribute_name)
+    public function setReviewLink($reviewLink)
     {
-        return $this->{$attribute_name};
+        $this->reviewLink = $reviewLink;
+
+        return $this;
     }
 
-
     /**
-     * Get setAny.
+     * Get reviewLink.
      *
+     * @return string
      */
-    public function setAny($attribute_name, $attribute_value)
+    public function getReviewLink()
     {
-        $this->{$attribute_name} = $attribute_value;
-        return $this;
+        return $this->reviewLink;
     }
 }

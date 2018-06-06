@@ -8,32 +8,33 @@ use Doctrine\ORM\Mapping as ORM;
  * BrokersOrder
  *
  * @ORM\Table(name="brokers_order")
- * @ORM\Entity(repositoryClass="OC\BrokersBundle\Repository\BrokersOrderRepository")
+ * @ORM\Entity
  */
 class BrokersOrder
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="broker_id", type="integer")
+     * @ORM\Column(name="broker_id", type="integer", nullable=false)
      */
     private $brokerId;
+
 
 
     /**

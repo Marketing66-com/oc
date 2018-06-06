@@ -1,0 +1,46 @@
+<?php
+
+namespace OC\BrokersBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BrokersArray
+ *
+ * @ORM\Table(name="brokers_array")
+ * @ORM\Entity
+ */
+class BrokersArray
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="array", type="array", length=0, nullable=false)
+     */
+    private $array;
+
+    /**
+     * @var json
+     *
+     * @ORM\Column(name="array2", type="json", nullable=false)
+     */
+    private $array2;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="array3", type="json_array", length=0, nullable=false)
+     */
+    private $array3;
+
+
+}

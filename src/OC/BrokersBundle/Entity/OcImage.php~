@@ -1,0 +1,39 @@
+<?php
+
+namespace OC\BrokersBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcImage
+ *
+ * @ORM\Table(name="oc_image")
+ * @ORM\Entity
+ */
+class OcImage
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=false)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alt", type="string", length=255, nullable=false)
+     */
+    private $alt;
+
+
+}
