@@ -1,0 +1,24 @@
+<script>
+    var socket = io.connect('http://localhost:3000', {reconnect: true});
+
+    var arr1=[]
+    // arr=["LTCEUR","XRPUSD","BTCUSD","BTCUSDT","BTCSTORJ","ETHETC"]
+    socket.on('connect', function() {
+
+        // Connected, let's sign-up for to receive messages for this room
+        {#socket.emit('room', {{ arr|json_encode|e }});#}
+        vari = '{{ arr|json_encode() }}';
+        console.log( vari );
+        console.log( typeof vari );
+
+        vari = JSON.parse(vari.replace(/&quot;/g,'"'));
+        console.log( vari );
+        console.log( typeof vari );
+
+        socket.emit('room', vari);
+
+    });
+
+
+
+</script>

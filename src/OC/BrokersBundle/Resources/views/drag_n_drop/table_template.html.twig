@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
+
+</head>
+
+<body>
+
+{#<div>hello#}
+{#<img src="http://www.gifsanimes.com/data/media/968/winnie-l-ourson-bebe-image-animee-0002.jpg"/>#}
+
+{#</div>#}
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Connecté en tant que {{ app.user.username }}
+    <br>
+
+    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+
+{% else %}
+    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+
+
+{% endif %}
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") and is_granted('ROLE_AUTEUR') %}
+
+    {{ include('BrokersBundle:drag_n_drop:table_content.html.twig' , {brokersSerialized: brokersSerialized})}}
+
+
+{% else %}
+
+    {{ include('UserBundle:Security:broker_table.html.twig') }}
+
+{% endif %}
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.15.0/sortable.min.js"></script>
+
+
+<script src="{{ asset('js/js3.js') }}"></script>
+<script src="{{ asset('js/uploadFile.js') }}"></script>
+<script src="{{ asset('js/menu.js') }}"></script>
+<script>
+$(document).ready(function(){
+var test = {{ brokersSerialized|json_encode|raw }};
+
+console.log("test",typeof test)
+});
+</script>
+</body>
+
+</html>

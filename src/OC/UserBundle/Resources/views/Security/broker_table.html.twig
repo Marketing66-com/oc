@@ -1,0 +1,51 @@
+<div  ng-app="demo" ng-controller="SimpleDemoController">
+    <table>
+        <thead>
+        <th id="_logo"> </th>
+        <th id="_broker">BROKERS </th>
+        <th id="_deposit">Min Deposit</th>
+        <th id="_crypto">Crypto</th>
+        <th id="_score">User Score</th>
+        <th id="_regulation">Regulation</th>
+        <th id="_trade">Start Trading</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in list1">
+            {% verbatim %}
+        <td>
+            <img src={{item.logo}}>
+        </td>
+        <td>
+            {{item.name}}
+        </td>
+        <td>
+            {{item.min_depot}}
+        </td>
+        <td>
+            <img src={{item.crypto}}>
+
+        </td>
+        <td>
+            {{item.user_score}}
+        </td>
+        <td>
+            <img src={{item.regulation}}>
+        </td>
+
+
+        <td>
+            <a href={{item.review_link}} >Read review</a>
+        </td>
+
+        <td>
+            <a href={{item.button_link}} >Vist site</a>
+
+        </td>
+        {% endverbatim %}
+        </tr>
+        </tbody>
+    </table>
+    {% verbatim %}
+<pre>{{list1}}</pre>
+ {% endverbatim %}
+</div>

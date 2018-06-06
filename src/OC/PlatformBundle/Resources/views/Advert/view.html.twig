@@ -1,0 +1,31 @@
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>annonce {{ advert.id }}</title>
+</head>
+<body>
+
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{# On vérifie qu'une image soit bien associée à l'annonce #}
+{% if advert.image is not null %}
+    <img src="{{ advert.image.url }}" alt="{{ advert.image.alt }}">
+{% endif %}
+{#<img src="http://www.gifsanimes.com/data/media/968/winnie-l-ourson-bebe-image-animee-0002.jpg" alt="hello">#}
+<p>
+    Ici nous pourrons lire l'annonce ayant comme id : {{ advert.id}}<br />
+    {{ advert.content }}
+    {% if is_granted('ROLE_AUTEUR') %}
+    <li><a href="">Ajouter une annonce</a></li>
+{% endif %}
+
+</p>
+
+
+
+
+
+</body>
+</html>

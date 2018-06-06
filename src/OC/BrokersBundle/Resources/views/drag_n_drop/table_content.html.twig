@@ -1,0 +1,168 @@
+
+{#<div ng-app="demo" ng-controller="SimpleDemoController" ng-init="init( {{ brokersSerialized}} )" >#}
+    {#<ul ng-repeat="user in list1">#}
+        {#<li>{[{ user.logo }]}</li>#}
+    {#</ul>#}
+{#</div>#}
+
+
+
+<div  ng-app="demo" ng-controller="SimpleDemoController"   ng-init="init( {{ brokersSerialized}} )" >
+    <div  ng-controller="myCtrl2">
+        <select ng-model="selectedName" ng-options="x for x in names" >
+        </select>
+
+            <select ng-model="selectedCountry" ng-options="x for x in countries" >
+            </select>
+            <button ng-click="generate_table()">Ready!</button>
+
+    </div>
+    <pre>You are granted author role, you can edit the table order, finish with the SAVE button</pre>
+    <table>
+        <thead>
+        <th id="_logo"> </th>
+        <th id="_broker">BROKERS </th>
+        <th id="_deposit">Min Deposit</th>
+        <th id="_crypto">Crypto</th>
+        <th id="_score">User Score</th>
+        <th id="_regulation">Regulation</th>
+        <th id="_trade">Start Trading</th>
+        </thead>
+
+
+               <tbody ui-sortable="sortOptions" ng-model="brokers">
+    <tr ng-repeat="broker in brokers">
+
+        <td>
+            <img  src="{{ asset('{[{broker.logo}]}') }}" style="height: 50px;width: 75px;">
+
+<div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
+    <div class="panel-body">
+        <form enctype="multipart/form-data" method="POST" id="fileFormLogo" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'logo')">
+            <div class="form-group">
+                <label for="file">Select a file: </label>
+                <input type="file" name="file" class="form-control" id="fileLogo" ng-files="getTheFiles($theFiles)" />
+            </div>
+            <button type="submit" class="btn btn-primary">try Upload File</button>
+        </form>
+    </div>
+</div>
+
+
+
+        </td>
+        <td>
+
+                <span ng-hide="broker.editMode">  {[{broker.name}]}</span>
+                  <input type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.name" placeholder=  {[{broker.name}]} required="" />
+
+        </td>
+        <td >
+
+            <span ng-hide="broker.editMode">  {[{broker.minDepot}]}</span>
+            <input type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.minDepot" placeholder=  {[{broker.minDepot}]} required="" />
+
+        </td>
+
+
+        <td >
+            {#<!--<img src={{item.crypto}} ng-hide="item.editMode">-->#}
+            {#<!--<div  ng-show="item.editMode">-->#}
+            {#<!--<input type="file" id="file" name="file"/>-->#}
+{#<!--<button ng-click="addImage()">Add</button>-->#}
+{#<!--</div>-->#}
+            <img  src="{{ asset('{[{broker.cryptoImage}]}') }}" style="height: 50px;width: 75px;">
+
+            <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
+                <div class="panel-body">
+                    <form enctype="multipart/form-data" method="POST" id="fileFormcryptoImage" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'cryptoImage')">
+                        <div class="form-group">
+                            <label for="file">Select a file: </label>
+                            <input type="file" name="file" class="form-control" id="filecryptoImage" ng-files="getTheFiles($theFiles)" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">try Upload File</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+        </td>
+        <td >
+            <span ng-hide="broker.editMode">  {[{broker.userScore}]}</span>
+                  <input type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.userScore" placeholder=  {[{broker.userScore}]} required="" />
+
+        </td>
+
+
+
+        <td>
+
+            <img  src="{{ asset('{[{broker.regulationImg}]}') }}" style="height: 50px;width: 75px;">
+
+            <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
+                <div class="panel-body">
+                    <form enctype="multipart/form-data" method="POST" id="fileFormregulationImg" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'regulationImg')">
+                        <div class="form-group">
+                            <label for="file">Select a file: </label>
+                            <input type="file" name="file" class="form-control" id="fileregulationImg" ng-files="getTheFiles($theFiles)" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">try Upload File</button>
+                    </form>
+                </div>
+            </div>
+        </td>
+
+
+        <td>
+            <a href={[{broker.reviewLink}]} >Read review</a>
+
+                  <input type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.reviewLink" placeholder=  {[{broker.reviewLink}]} required="" />
+
+        </td>
+
+        <td >
+            <a href={[{broker.siteLink}]} >Vist site</a>
+                  <input type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.siteLink" placeholder=  {[{broker.siteLink}]} required="" />
+
+
+        </td>
+    <td>
+                  <a href="" ng-hide="broker.editMode" ng-click="editUser(broker)">Edit</a>
+                  <a href="" ng-hide="broker.editMode" ng-click="delete(broker,$index)">Delete</a>
+                  <a href="" ng-show="broker.editMode" ng-click="saveUser(broker,$index)">Update</a>
+                  <a href="" ng-show="broker.editMode" ng-click="cancel(broker,$index)">Cancel</a>
+                </td>
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </tbody>
+
+
+    </table>
+
+
+
+<button  ng-click="save()">SAVE</button>
+<button  ng-click="addNew()">ADD NEW</button>
+
+
+
+</div>
+

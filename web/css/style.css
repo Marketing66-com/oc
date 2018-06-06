@@ -1,0 +1,86 @@
+tr:hover {
+    background-color: #EDF9FE;
+}
+
+#im:hover {
+    cursor: pointer;
+}
+
+td {
+    border-bottom: 1px solid #e2e2e2;
+    height: 70px;
+    vertical-align: middle;
+}
+
+table {
+    border-collapse: collapse
+}
+
+th {
+    font-weight: 400;
+    height: 70px;
+    margin-top: 20px;
+    text-align: left;
+    font-family: quicksand;
+    font-size: 15px;
+    color: #fff;
+    background-color: #fff4d8;
+}
+
+#_broker {
+    height: 40px;
+    width: 3%;
+    color: #8C6713;
+    background-color: #fff4d8;
+}
+
+#_deposit {
+    width: 10.5%;
+    text-align: left;
+    font-family: quicksand;
+    font-size: 15px;
+    font-weight: 400;
+    color: #8C6713;
+    background-color: #fff4d8;
+}
+
+#_crypto {
+    width: 15.5%;
+    text-align: left;
+    font-family: quicksand;
+    font-size: 15px;
+    font-weight: 400;
+    color: #8C6713;
+    background-color: #fff4d8;
+}
+
+#_score {
+    width: 14.5%;
+    text-align: left;
+    font-family: quicksand;
+    font-size: 15px;
+    font-weight: 400;
+    color: #8C6713;
+    background-color: #fff4d8;
+}
+
+#_regulation {
+    width: 12.5%;
+    text-align: left;
+    font-family: quicksand;
+    font-size: 15px;
+    font-weight: 400;
+    color: #8C6713;
+    background-color: #fff4d8;
+}
+
+
+#_trade {
+    text-align: left;
+    width: 12.5%;
+    font-family: quicksand;
+    font-size: 15px;
+    font-weight: 400;
+    color: #8C6713;
+    background-color: #fff4d8;
+}

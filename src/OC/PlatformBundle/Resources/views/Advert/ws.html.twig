@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bienvenue sur ma première page avec OpenClassrooms !</title>
+</head>
+<body>
+<h1>Hello World !</h1>
+
+<p>
+    Le Hello World est un grand classique en programmation.
+    Il signifie énormément, car cela veut dire que vous avez
+    réussi à exécuter le programme pour accomplir une tâche simple :
+    afficher ce hello world ! {{ arr|json_encode() }}
+</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+
+{{ include("OCPlatformBundle:Advert:connect_to_ws.html.twig" , {arr:arr}) }}
+
+    {#<script src="{{ asset( '/js/connect.js' ) }}"></script>#}
+<script>
+    console.log("chui la")
+    socket.on('message', function (data) {
+        console.log('Incoming message:', data);
+    });
+
+</script>
+
+</body>
+</html>

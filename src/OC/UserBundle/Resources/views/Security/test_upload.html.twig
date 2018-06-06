@@ -1,0 +1,81 @@
+<html>
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" >
+<h2>File Upload Demo</h2>
+<div class="panel panel-default" ng-controller="FileUploadController">
+    <div class="panel-body">
+        <form enctype="multipart/form-data" method="POST" id="fileForm" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event)">
+            <div class="form-group">
+                <label for="file">Select a file: </label>
+                <input type="file" name="file" class="form-control" id="file" ng-files="getTheFiles($theFiles)" />
+            </div>
+            <button type="submit" class="btn btn-primary">try Upload File</button>
+        </form>
+    </div>
+</div>
+<script>
+    var myApp = angular.module('myApp', []);
+
+    /*
+     A directive to enable two way binding of file field
+     */
+    myApp.directive('ngFiles', Array('$parse', function ($parse) {
+        return {
+            link: function (scope, element, attrs) {
+                var onChange = $parse(attrs.ngFiles);
+                element.on('change', function (event) {
+                    onChange(scope, {$theFiles: event.target.files});
+                });
+            }
+        };
+    }));
+
+    myApp.controller('FileUploadController', function ($scope, $http) {
+        var formData = new FormData();
+        $scope.getTheFiles = function ($theFiles) {
+            angular.forEach($theFiles, function (value, key) {
+                formData.append(key, value);
+            });
+        };
+        $scope.uploadTheFiles = function (event) {
+            event.preventDefault();
+
+            var formDataLength = 0;
+            for (var key of formData.entries()) {
+                formDataLength++;
+            }
+
+            if (formDataLength > 0) {
+                var action = event.target.action || event.target.getAttribute('action');
+                $http({
+                    method: 'POST',
+                    url: action,
+                    headers: {
+                        'Content-Type': undefined,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    data: formData
+                })
+                    .success(function (response) {
+                        console.log(response);
+
+                        return true;
+                    })
+                    .error(function (data, status) {
+                        console.error(data);
+                        console.log(status);
+
+                        return false;
+                    });
+            }
+        };
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+OC\BrokersBundle\Entity\Broker:
+    type: entity
+    table: broker
+    uniqueConstraints:
+        UNIQ_F6AAF03B5E237E06:
+            columns:
+                - name
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        siteLink:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: site_link
+        cryptoImage:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: crypto_image
+        logo:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        minDepot:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: min_depot
+        regulationImg:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: regulation_img
+        userScore:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: user_score
+        reviewLink:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: review_link
+    lifecycleCallbacks: {  }

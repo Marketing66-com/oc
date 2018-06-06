@@ -1,0 +1,29 @@
+OC\BrokersBundle\Entity\BrokersArray:
+    type: entity
+    table: brokers_array
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        array:
+            type: array
+            nullable: false
+            length: 0
+            options:
+                fixed: false
+        array2:
+            type: json
+            nullable: false
+        array3:
+            type: json_array
+            nullable: false
+            length: 0
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

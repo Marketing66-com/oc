@@ -1,0 +1,94 @@
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
+    <html>
+
+    <head>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    </head>
+
+<body ng-app="myApp" ng-controller="FileUploadController" >
+{#<div ng-repeat="broker in  brokers >#}
+    {#{[{ logo }]}#}
+    {#{{ brokers[0].name }}#}
+    {#ng-init="init( {{ brokers }} )"#}
+    {#ng-init="brokers = {{ brokers }}"#}
+    {#<img src="{{ asset('{[{ logo }]}') }}"/>#}
+{#{[{broker.logo}]}#}
+{#</div>#}
+{#{% set users = [{'name':'John Doe'},{'name':'Jane Doe'}] %}#}
+
+{#<div >#}
+    {#<div ng-init='users={{ users|json_encode|raw }}'>#}
+    {#<div  ng-init="init( {{ brokersSerialized}} )" >#}
+<div  ng-init="init( {{ brokersSerialized}} )" >
+        <ul ng-repeat="user in users">
+            <li>{[{ user.logo }]}</li>
+        </ul>
+    </div>
+{#{{ brokers| serialize | raw }}#}
+{#{{ brokers[0].name}}#}
+{% for broker in brokersSerialized%}
+
+    <li>{{ broker.name }}</li>
+{% endfor %}
+
+
+<script>
+
+
+
+    $(document).ready(function(){
+        var test = {{ brokersSerialized|json_encode|raw }};
+
+        console.log("test",test)
+    });
+
+
+    var myApp = angular.module('myApp', []).config(function($interpolateProvider){
+        $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    });
+
+
+    myApp.controller('FileUploadController', function ($scope) {
+
+        $scope.logo = "images/uploads/brokers/Capture4.PNG"
+$scope.brokers =  []
+        $scope.users=[]
+        $scope.init = function(brokers){
+            console.log(typeof brokers)
+            console.log( brokers)
+            $scope.users = brokers
+        }
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

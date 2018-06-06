@@ -1,0 +1,161 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="FileUploadController">
+<h2>File Upload Demo</h2>
+{% verbatim %}
+<div class="panel panel-default">
+    <div class="panel-body">
+
+            <div class="form-group">
+                <label for="file">Select a file: </label>
+                <input type="file" demo-file-model="myFile"  name="file"  class="form-control" id ="file"/>
+            </div>
+            <button ng-click="uploadFile()" class = "btn btn-primary">try Upload File</button>
+
+    </div>
+</div>
+<div>{{serverResponse}}</div>
+{% endverbatim %}
+<script>
+    var myApp = angular.module('myApp', []);
+    /*
+  A directive to enable two way binding of file field
+  */
+    myApp.directive('demoFileModel', function ($parse) {
+        return {
+            restrict: 'A', //the directive can be used as an attribute only
+
+            /*
+             link is a function that defines functionality of directive
+             scope: scope associated with the element
+             element: element on which this directive used
+             attrs: key value pair of element attributes
+             */
+            link: function (scope, element, attrs) {
+                var model = $parse(attrs.demoFileModel),
+                    modelSetter = model.assign; //define a setter for demoFileModel
+
+                //Bind change event on the element
+                element.bind('change', function () {
+                    //Call apply on scope, it checks for value changes and reflect them on UI
+                    scope.$apply(function () {
+                        //set the model value
+                        modelSetter(scope, element[0].files[0]);
+                    });
+                });
+            }
+        };
+    });
+
+
+    myApp.service('fileUploadService', function ($http, $q) {
+
+
+
+        this.uploadFileToUrl = function (file, uploadUrl) {
+            var fd = new FormData();
+            //Take the first selected file
+            fd.append("file", file);
+
+            var obj = {"sarah":'pause'}
+            var deffered = $q.defer();
+
+            // $http.push(uploadUrl, fd, {
+            //     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            //     transformRequest: angular.identity
+            // }).success(function (response) {
+            //     console.log("response1",response)
+            //
+            // }).error(function (response) {
+            //     console.log("response2",response)
+            // });
+            //
+            // var json = JSON2.stringify(obj );
+            // jQuery.ajax({
+            //     url: uploadUrl,
+            //     data: fd,
+            //      cache: false,
+            //    contentType: undefined,
+            //      processData: false,
+            //      enctype: 'multipart/form-data',
+            //     uploadMultiple: true,
+            //     method: 'POST',
+            //     type: 'POST', // For jQuery < 1.9
+            //     success: function(data){
+            //         console.log("response from server",data);
+            //     }
+            // });
+            $http({
+                method: 'POST',
+                url: uploadUrl,
+                headers: {
+                    'Content-Type': undefined,
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                data: fd
+            })
+                .success(function (response) {
+                    console.log(response);
+
+                    return true;
+                })
+                .error(function (data, status) {
+                    console.error(data);
+                    console.log(status);
+
+                    return false;
+                });
+          //  var json = JSON.stringify(obj );
+          //   jQuery.ajax({
+          //       url: uploadUrl,
+          //       data: fd,
+          //       // cache: false,
+          //       // contentType: "application/json; charset=utf-8",
+          //       // processData: false, dataType: "json",
+          //
+          //       method: 'POST',
+          //       type: 'POST', // For jQuery < 1.9
+          //       success: function(data){
+          //           console.log("response from server",data);
+          //       }
+          //   });
+
+            return deffered.promise;
+        }
+    });
+
+
+    myApp.controller('FileUploadController', function ($scope, fileUploadService) {
+
+        $scope.uploadFile = function () {
+            var file = $scope.myFile;
+            console.log("my file", file)
+            //var uploadUrl = "../platform/saveImage", //Url of webservice/api/server
+            var uploadUrl = "../upload_file2", //Url of webservice/api/server
+                promise = fileUploadService.uploadFileToUrl(file, uploadUrl);
+
+            promise.then(function (response) {
+                $scope.serverResponse = response;
+            }, function () {
+                $scope.serverResponse = 'An error has occurred';
+            })
+        };
+    });
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

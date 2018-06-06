@@ -1,0 +1,57 @@
+OC\BrokersBundle\Entity\GlobalParent:
+    type: entity
+    table: global_parent
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: _id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        logo:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        review:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        link:
+            type: string
+            nullable: true
+            length: 11
+            options:
+                fixed: false
+        score:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        crypto:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+        displayName:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+            column: display_name
+    lifecycleCallbacks: {  }

@@ -1,0 +1,139 @@
+
+    <div  ng-app="demo" ng-controller="SimpleDemoController">
+        <pre>You are granted author role, you can edit the table order, finish with the SAVE button</pre>
+        <table>
+            <thead>
+            <th id="_logo"> </th>
+            <th id="_broker">BROKERS </th>
+            <th id="_deposit">Min Deposit</th>
+            <th id="_crypto">Crypto</th>
+            <th id="_score">User Score</th>
+            <th id="_regulation">Regulation</th>
+            <th id="_trade">Start Trading</th>
+            </thead>
+
+            {% verbatim %}
+
+               <tbody ui-sortable="sortOptions" ng-model="list1">
+    <tr ng-repeat="item in list1">
+
+        <td>
+            <img  src={{item.logo}} style="height: 50px;width: 75px;">
+
+<div ng-show="item.editMode" class="panel panel-default" ng-controller="FileUploadController">
+    <div class="panel-body">
+        <form enctype="multipart/form-data" method="POST" id="fileForm" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,item)">
+            <div class="form-group">
+                <label for="file">Select a file: </label>
+                <input type="file" name="file" class="form-control" id="file" ng-files="getTheFiles($theFiles)" />
+            </div>
+            <button type="submit" class="btn btn-primary">try Upload File</button>
+        </form>
+    </div>
+</div>
+
+
+
+        </td>
+        <td>
+
+                <span ng-hide="item.editMode">  {{item.name}}</span>
+                  <input type="text" name="name" ng-show="item.editMode" class="form-control" ng-model="item.name" placeholder=  {{item.name}} required="" />
+
+        </td>
+        <td >
+
+            <span ng-hide="item.editMode">  {{item.min_depot}}</span>
+
+        </td>
+
+
+        <td >
+            <!--<img src={{item.crypto}} ng-hide="item.editMode">-->
+            <!--<div  ng-show="item.editMode">-->
+            <!--<input type="file" id="file" name="file"/>-->
+<!--<button ng-click="addImage()">Add</button>-->
+<!--</div>-->
+<img ng-hide="item.editMode" src=" {{item.crypto}}"> </img>
+ <form  ng-show="item.editMode" action="../upload_file" method="post" enctype="multipart/form-data">
+    <label for="file">Crypto:</label>
+    <input type="file" name="file" id="file"><br>
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+
+
+
+
+
+        </td>
+        <td >
+            <span ng-hide="item.editMode">  {{item.user_score}}</span>
+                  <input type="text" name="name" ng-show="item.editMode" class="form-control" ng-model="item.user_score" placeholder=  {{item.user_score}} required="" />
+
+        </td>
+
+
+
+        <td>
+
+                        <img  ng-hide="item.editMode" src={{item.regulation}}>
+<form  ng-show="item.editMode" action="../upload_file" method="post" enctype="multipart/form-data">
+    <label for="file">REGULATION:</label>
+    <input type="file" name="file" id="file"><br>
+    <input type="submit" name="submit" value="Submit">
+</form>
+        </td>
+
+
+        <td>
+            <a href={{item.review_link}} >Read review</a>
+
+                  <input type="text" name="name" ng-show="item.editMode" class="form-control" ng-model="item.review_link" placeholder=  {{item.review_link}} required="" />
+
+        </td>
+
+        <td >
+            <a href={{item.button_link}} >Vist site</a>
+                  <input type="text" name="name" ng-show="item.editMode" class="form-control" ng-model="item.button_link" placeholder=  {{item.button_link}} required="" />
+
+
+        </td>
+    <td>
+                  <a href="" ng-hide="item.editMode" ng-click="editUser(item)">Edit</a>
+                  <a href="" ng-hide="item.editMode" ng-click="delete(item,$index)">Delete</a>
+                  <a href="" ng-show="item.editMode" ng-click="saveUser(item,$index)">Update</a>
+                  <a href="" ng-show="item.editMode" ng-click="cancel(item,$index)">Cancel</a>
+                </td>
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </tbody>
+
+{% endverbatim %}
+        </table>
+
+
+        {% verbatim %}
+<button  ng-click="save()">SAVE</button>
+<button  ng-click="addNew()">ADD NEW</button>
+
+
+ {% endverbatim %}
+
+    </div>
+
