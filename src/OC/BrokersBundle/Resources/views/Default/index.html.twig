@@ -28,11 +28,13 @@
 
 <ul>
     {% for broker in brokers %}
-        {#<li>name: {{ broker.name }} </li>#}
-        {#<li>logo: {{ broker.logo }} </li>#}
+        <li>name: {{ broker.name }} </li>
+        <li>logo: {{ broker.logo }} </li>
         <li>link: {{ broker.link }} </li>
-        {#<li>review: {{ broker.review }} </li>#}
-
+        <li>crypto: {{ broker.crypto }} </li>
+        <li>link: {{ broker.review }} </li>
+        <li>score: {{ broker.score }} </li>
+        <li>displayName: {{ broker.displayName }} </li>
     {% endfor %}
 </ul>
 <script>
