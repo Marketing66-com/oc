@@ -1,0 +1,159 @@
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+
+
+
+
+
+</head>
+
+<body>
+Hello World!
+
+<div  ng-app="LiveFeedsApp" ng-controller="LiveFeedsController"   ng-init="init('{{ api }}')" >
+    <div >
+        <table>
+            <thead>
+            <th id="_bid">watchlistviewer</th>
+            <th id="_logo"> </th>
+            <th id="_name">name </th>
+            <th id="_price">price</th>
+            <th id="_high">high</th>
+            <th id="_bid">bid</th>
+            <th id="_ask">ask</th>
+            <th id="_low">low</th>
+            <th id="_high">likes</th>
+            <th id="_high">unlikes</th>
+            <th id="_ask">comments_number</th>
+            <th id="_high">chart</th>
+            <th id="_ask">trade</th>
+            </thead>
+
+
+            <tbody  >
+            <tr ng-repeat="curr in all">
+                <td>
+
+
+
+
+
+
+                </td>
+                <td>
+                    <img  src={[{curr.img}]} style="height: 50px;width: 75px;">
+
+
+
+
+
+                </td>
+                <td>
+<span ng-model= curr.name>
+       {[{curr.name}]}
+</span>
+
+
+                </td>
+                <td >
+
+                    <span ng-model= curr.price>  {[{curr.price}]}</span>
+
+                </td>
+
+
+                </td>
+                <td>
+
+                    <span ng-model= curr.high>  {[{curr.high}]}</span>
+
+                </td>
+                <td >
+
+                    <span ng-model= curr.bid>  {[{curr.bid}]}</span>
+
+                </td>
+
+                </td>
+                <td>
+
+                    <span ng-model= curr.ask>  {[{curr.ask}]}</span>
+
+                </td>
+                <td >
+
+                    <span ng-model=" curr.low">  {[{curr.low}]}</span>
+
+                </td>
+
+                <td>
+
+                    <span ng-model= curr.high>  {[{curr.likes}]}</span>
+
+                </td>
+                <td >
+
+                    <span ng-model= curr.bid>  {[{curr.unlikes}]}</span>
+
+                </td>
+
+                </td>
+                <td>
+
+                    <span ng-model= curr.ask>  {[{curr.comments_number}]}</span>
+
+                </td>
+                <td >
+
+                    <span > CHART </span>
+
+                </td>
+
+                </td>
+                <td>
+
+                    <span >   TRADE NOW </span>
+
+                </td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </tbody>
+
+
+        </table>
+
+
+
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.15.0/sortable.min.js"></script>
+<script src="{{ asset('js/liveFeeds.js') }}"></script>
+</body>
+
+</html>

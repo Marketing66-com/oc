@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new OC\UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new OC\BrokersBundle\BrokersBundle(),
+            new OC\FeedsBundle\OCFeedsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

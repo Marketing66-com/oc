@@ -152,8 +152,8 @@ class BrokersController extends Controller
     {
         $products = $this->getDoctrine()
             ->getRepository('BrokersBundle:BrokerPays')
-            ->findAllInheritance();
-        dump($products);
+            ->subquerybuilder();
+        var_dump($products);
         return $this->render('BrokersBundle:Default:index.html.twig',[
             'brokers' => $products
         ]);
@@ -611,4 +611,27 @@ $name="";
 
         return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonBrokers,'brokers' => $brokersObjects));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+

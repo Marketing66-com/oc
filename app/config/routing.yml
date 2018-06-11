@@ -1,3 +1,11 @@
+oc_feeds:
+    resource: "@OCFeedsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+
+
 brokers:
     resource: "@BrokersBundle/Controller/"
     type:     annotation

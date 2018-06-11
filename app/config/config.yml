@@ -5,6 +5,9 @@ imports:
     - { resource: "@OCPlatformBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@BrokersBundle/Resources/config/services.yml" }
+    - { resource: "@OCFeedsBundle/Resources/config/services.yml" }
+ 
+
 
 #login_check:
 #    path: /login_check
