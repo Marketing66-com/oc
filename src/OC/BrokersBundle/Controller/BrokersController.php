@@ -3,9 +3,15 @@
 namespace OC\BrokersBundle\Controller;
 
 use OC\BrokersBundle\Entity\Broker;
+use OC\BrokersBundle\Entity\BrokerPays;
 use OC\BrokersBundle\Entity\BrokersArray;
+use OC\BrokersBundle\Entity\GlobalParent;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use OC\PlatformBundle\Entity\Advert;
@@ -17,6 +23,204 @@ use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class BrokersController extends Controller
 {
+
+    /**
+     * @Route("/added", name="added")
+
+     *
+     * @return JsonResponse
+     */
+    public function addedAction(Request $request)
+    {
+       // $routeParams = $request->attributes->get('_route_params');
+      //  $id = $routeParams['id'];
+       // .
+        $query_parameters = $request->query->get('id');
+        dump($query_parameters);
+        return $this->render('BrokersBundle:Default:default.html.twig');
+    }
+
+        /**
+     * @Route("/newBroker", name="newBroker")
+
+
+     */
+    public function newBrokerAction(Request $request) {
+
+
+
+        $broker = new Broker();
+
+
+
+        foreach( $_POST['user'] as $stuff => $val  ) {
+
+            $broker->setAny($stuff, $val);
+
+
+
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+        $em->persist($broker);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $em->flush();
+
+        //$id = $_POST['id'];
+        // $product = $em->getRepository(BrokersArray::class)->find($id);
+        $product = $em->getRepository(BrokersArray::class)->findAll();
+//        if (!$product) {
+//            throw $this->createNotFoundException(
+//                'No product found for id '.$id
+//            );
+//        }
+        $last = $product[count($product)-1];
+        //$product->setArray($temp);
+        $array =  $last->getArray2();
+        // $product->setArray3($temp);
+        array_push($array,$broker->getName());
+        $last->setArray2($array);
+        $em->flush();
+
+
+
+
+
+        return new JsonResponse($broker->getId());
+
+
+    }
+
+
+
+
+
+
+
+
+
+    /**
+     * @Route("/BrokerPage",name="BrokerPage")
+
+     */
+    public function BrokerPageAction(Request $request)
+    {
+
+        $global_broker = new GlobalParent();
+$parent_broker = new BrokerPays();
+        // On crée le FormBuilder grâce au service form factory
+
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $global_broker);
+
+        // On ajoute les champs de l'entité que l'on veut à notre formulaire
+        $formBuilder
+            ->add('name',      TextType::class)
+            ->add('logo',     TextType::class)
+            ->add('review',   TextType::class)
+            ->add('link',    TextType::class)
+            ->add('score', IntegerType::class)
+            ->add('crypto',      TextType::class)
+            ->add('displayName',      TextType::class)
+
+        ;
+        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
+
+        // À partir du formBuilder, on génère le formulaire
+        $form = $formBuilder->getForm();
+
+//pays form
+
+
+        $formBuilder2 = $this->get('form.factory')->createBuilder(FormType::class, $parent_broker);
+
+        // On ajoute les champs de l'entité que l'on veut à notre formulaire
+        $formBuilder2
+
+            ->add('review',   TextType::class)
+           
+        ;
+        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
+
+        // À partir du formBuilder, on génère le formulaire
+        $form2 = $formBuilder2->getForm();
+
+
+
+        // Si la requête est en POST
+        if ($request->isMethod('POST')) {
+            // On fait le lien Requête <-> Formulaire
+            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+            $form->handleRequest($request);
+
+            $form2->handleRequest($request);
+$temp = 0;
+            $em = $this->getDoctrine()->getManager();
+            if ($form->isSubmitted()) {
+                $temp += 1;
+                if ($form->isValid()) {
+
+
+                    // On enregistre notre objet $advert dans la base de données, par exemple
+
+                    $em->persist($global_broker);
+                    $em->flush();
+
+
+
+                }
+            }
+            if ($form2->isSubmitted()) {
+                $temp += 2;
+                if ($form2->isValid()) {
+
+
+                    $em->persist($parent_broker);
+                    $em->flush();
+
+
+                }
+            }
+
+
+                return $this->redirectToRoute('added', array('id' =>$temp));
+
+        }
+
+        // À ce stade, le formulaire n'est pas valide car :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+//        return $this->render('OCPlatformBundle:Advert:add.html.twig', array(
+//            'form' => $form->createView(),
+//        ));
+
+
+
+
+
+
+        // On passe la méthode createView() du formulaire à la vue
+        // afin qu'elle puisse afficher le formulaire toute seule
+        return $this->render('BrokersBundle:Default:broker.html.twig', array(
+            'form' => $form->createView(),
+            'form2' => $form2->createView(),
+        ));
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
         /**
      * @Route("/upload_file")
      * @Method("POST")

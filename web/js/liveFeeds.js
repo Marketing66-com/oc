@@ -91,3 +91,40 @@ symbol
 
 });
 
+// demo.service('WebSocketWrapper', ['$log', '$websocket', '$rootScope', function($log, $websocket, $rootScope) {
+//     var ws = null;
+//
+//     this.state = 'initializing';
+//     this.message = 'Websocket initializing';
+//
+//     var self = this;
+//
+//     this.init = function(){
+//         if (!ws) {
+//             ws = $websocket('https://xosignals.herokuapp.com/', null, {reconnectIfNotNormalClose: true});
+//
+//             ws.onOpen(function(){
+//                 console.log('connected');
+//                 $rootScope.$apply(function () {
+//                     self.state = 'connected';
+//                     self.message = 'Websocket connected';
+//                 });
+//             });
+//
+//             ws.onClose(function(){
+//                 console.log('close');
+//                 $rootScope.$apply(function () {
+//                     self.state = 'disconnected';
+//                     self.message = 'Websocket disconnected';
+//                 });
+//             });
+//         }
+//     };
+//
+// }]);
+//
+//
+// demo.controller('WebsocketStateCtrl', ['$scope', 'WebSocketWrapper', function($scope, WebSocketWrapper){
+//     $scope.websocket = WebSocketWrapper;
+//     $scope.websocket.init();
+// }]);

@@ -17,7 +17,8 @@
 
 <body>
 Hello World!
-
+<div  ng-app="LiveFeedsApp" ng-controller="WebsocketStateCtrl"    >
+</div>
 <div  ng-app="LiveFeedsApp" ng-controller="LiveFeedsController"   ng-init="init('{{ api }}')" >
     <div >
         <table>
@@ -153,6 +154,7 @@ Hello World!
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.15.0/sortable.min.js"></script>
+
 <script src="{{ asset('js/liveFeeds.js') }}"></script>
 </body>
 

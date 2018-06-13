@@ -182,21 +182,43 @@ class BrokerPaysRepository extends EntityRepository
 
         $query2 = $em->createQuery(
             'SELECT broker.id, broker.name, 
-CASE WHEN broker.link IS NULL THEN parent.link ELSE broker.link END
+ COALESCE(broker.link, parent.link)
 AS link,
-CASE WHEN broker.logo IS NULL THEN parent.logo ELSE broker.logo END
+COALESCE(broker.logo, parent.logo)
 AS logo,
-CASE WHEN broker.crypto IS NULL THEN parent.crypto ELSE broker.crypto END
+COALESCE(broker.crypto, parent.crypto)
 AS crypto,
-CASE WHEN broker.review IS NULL THEN parent.review ELSE broker.review END
+COALESCE(broker.review, parent.review)
 AS review,
-CASE WHEN broker.score IS NULL THEN parent.score ELSE broker.score END
+COALESCE(broker.score, parent.score)
 AS score,
-CASE WHEN broker.displayName  IS NULL THEN parent.displayName  ELSE broker.displayName  END
+COALESCE(broker.displayName, parent.displayName)
 AS displayName
  FROM BrokersBundle:BrokerPays broker 
  JOIN BrokersBundle:GlobalParent parent 
  WITH parent.name = broker.parent
+
+');
+//        )->setParameters(array('broker'=> broker))
+
+
+        $products = $query2->getResult();
+        dump($products);
+
+
+
+        //return $query->execute();
+        return $products;
+//
+
+    }
+    public function ifif()
+    {
+        $em = $this->getEntityManager();
+
+        $query2 = $em->createQuery(
+            'SELECT coin.name, COALESCE(coin.logo, parent.logo) as new FROM BrokersBundle:BrokerPays coin
+ JOIN BrokersBundle:GlobalParent parent WITH parent.name = coin.parent
  
 ');
 //        )->setParameters(array('broker'=> broker))
@@ -212,6 +234,5 @@ AS displayName
 //
 
     }
-
 
 }
