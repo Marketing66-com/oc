@@ -6,6 +6,7 @@ use OC\BrokersBundle\Entity\Broker;
 use OC\BrokersBundle\Entity\BrokerPays;
 use OC\BrokersBundle\Entity\BrokersArray;
 use OC\BrokersBundle\Entity\GlobalParent;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -113,10 +114,11 @@ class BrokersController extends Controller
 $parent_broker = new BrokerPays();
         // On crée le FormBuilder grâce au service form factory
 
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $global_broker);
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class);
 
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
         $formBuilder
+
             ->add('name',      TextType::class)
             ->add('logo',     TextType::class)
             ->add('review',   TextType::class)
@@ -124,7 +126,7 @@ $parent_broker = new BrokerPays();
             ->add('score', IntegerType::class)
             ->add('crypto',      TextType::class)
             ->add('displayName',      TextType::class)
-
+->add('save',SubmitType::class)
         ;
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
 
