@@ -11,7 +11,7 @@ $scope.all =[]
     $scope.init = function(api){
         console.log("api", api)
         $.ajax({
-            url: api,
+            url: api+"/forex",
             type: "GET",
             success: function (result) {
 
