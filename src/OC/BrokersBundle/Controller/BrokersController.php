@@ -786,34 +786,34 @@ $name="";
 //['brokers'=>$products]
 
 
-        $brokersOrder = $this->getDoctrine()
-            ->getRepository('BrokersBundle:BrokersArray')
-             ->findAll();
-
-
-         $order = $brokersOrder[count($brokersOrder)-1]->getArray2();
-
-
-        $array =  array();
-       // dump($order);
-      //  $neededObject = array();
-        foreach ($order as $name){
-
-            $neededObject = array_filter(
-                $brokersObjects,
-                function ($broker) use ($name){
-                    dump($broker);
-                    return $broker["name"] == $name;
-                }
-            );
-         //   dump(array_values($neededObject)[0]);
-            $boker_obj = array_values($neededObject);
-           // $key = array_filter($brokersObjects, "odd");
-            array_push($array, $boker_obj[0]);
-        }
-        dump($array);
-        dump($brokersObjects);
-        $jsonBrokers = $serializer->serialize($array, 'json');
+//        $brokersOrder = $this->getDoctrine()
+//            ->getRepository('BrokersBundle:BrokersArray')
+//             ->findAll();
+//
+//
+//         $order = $brokersOrder[count($brokersOrder)-1]->getArray2();
+//
+//
+//        $array =  array();
+//       // dump($order);
+//      //  $neededObject = array();
+//        foreach ($order as $name){
+//
+//            $neededObject = array_filter(
+//                $brokersObjects,
+//                function ($broker) use ($name){
+//                    dump($broker);
+//                    return $broker["name"] == $name;
+//                }
+//            );
+//         //   dump(array_values($neededObject)[0]);
+//            $boker_obj = array_values($neededObject);
+//           // $key = array_filter($brokersObjects, "odd");
+//            array_push($array, $boker_obj[0]);
+//        }
+//        dump($array);
+//        dump($brokersObjects);
+        $jsonBrokers = $serializer->serialize($brokersObjects, 'json');
 
 
 

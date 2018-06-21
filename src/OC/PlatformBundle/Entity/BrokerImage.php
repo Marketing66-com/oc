@@ -58,7 +58,7 @@ class BrokerImage
     protected $image;
 
     public function setImage(File $file = null)
-    { 
+    {
         $this->image = $file;
     }
 
