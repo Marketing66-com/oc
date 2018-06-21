@@ -359,7 +359,7 @@ $temp = 0;
         $products = $this->getDoctrine()
             ->getRepository('BrokersBundle:BrokerPays')
             ->subquerybuilder();
-        var_dump($products);
+        dump($products);
         return $this->render('BrokersBundle:Default:index.html.twig',[
             'brokers' => $products
         ]);
@@ -375,12 +375,12 @@ $temp = 0;
     {
         $products = $this->getDoctrine()
             ->getRepository('BrokersBundle:BrokerCountryCoin')
-            ->findAll();
-
+            ->test();
+        dump($products);
         return $this->render('BrokersBundle:Default:index.html.twig',[
             'brokers' => $products
         ]);
-        dump($products);
+
 
         // ... do something, like pass the $product object into a template
     }
@@ -775,10 +775,14 @@ $name="";
      */
     public function drag_n_dropAction() {
 
+
+
+
+
         $serializer = $this->get('serializer');
         $brokersObjects = $this->getDoctrine()
-            ->getRepository('BrokersBundle:Broker')
-            ->findAll();
+            ->getRepository('BrokersBundle:BrokerCountryCoin')
+            ->test();
 //['brokers'=>$products]
 
 
@@ -798,7 +802,8 @@ $name="";
             $neededObject = array_filter(
                 $brokersObjects,
                 function ($broker) use ($name){
-                    return $broker->getName() == $name;
+                    dump($broker);
+                    return $broker["name"] == $name;
                 }
             );
          //   dump(array_values($neededObject)[0]);
