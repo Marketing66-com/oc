@@ -9,6 +9,7 @@
 namespace OC\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -57,7 +58,7 @@ class BrokerImage
     protected $image;
 
     public function setImage(File $file = null)
-    {
+    { 
         $this->image = $file;
     }
 
