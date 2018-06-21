@@ -31,16 +31,23 @@ $scope.all =[]
 
 
 
-    var socket = io.connect("https://xosignals.herokuapp.com/", {
-        path: "/socket/xosignals/livefeed"
+    var socket = io.connect("https://forex-websocket.herokuapp.com/", {
+        path: "/socket/forex/livefeed"
     })
-    socket.on("onUpdate", function (response) {
+
+    socket.on('connect', function() {
+        // Connected, let's sign-up for to receive messages for this room
+        console.log("CONNECTED")
+
+    });
+
+    socket.on("all_regulated", function (response) {
 //console.log(response)
         var item73 = $scope.all.find(function(element) {
             return element.name == response.symbol;
         });
 
-        console.log(item73)
+        console.log(response)
 if(typeof item73 != typeof undefined)
 {
     for (const key in response.data) {
