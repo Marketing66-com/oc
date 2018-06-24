@@ -33,7 +33,7 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and is_granted('ROLE_AUTEUR') %}
 
-    {{ include('BrokersBundle:drag_n_drop:table_content.html.twig' , {brokersSerialized: brokersSerialized})}}
+    {{ include('BrokersBundle:drag_n_drop:table_content.html.twig' , {brokersSerialized: brokersSerialized, defaultSerialized: defaultSerialized})}}
 
 
 {% else %}

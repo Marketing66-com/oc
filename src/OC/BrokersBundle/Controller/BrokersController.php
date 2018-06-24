@@ -473,6 +473,7 @@ $temp = 0;
 
 
 
+
     /**
      * @Route("/update/{productId}",requirements={"productId" = "\d+"},name="update")
      */
@@ -766,6 +767,26 @@ $name="";
     }
 
 
+
+    public function isDefault()
+    {
+
+        $serializer = $this->get('serializer');
+        $products = $this->getDoctrine()
+            ->getRepository('BrokersBundle:BrokerCountryCoin')
+            ->findAll();
+//['brokers'=>$products]
+        //dump($products);
+
+        $jsonCountries = $serializer->serialize($products, 'json');
+
+
+
+        return $products;
+
+//        return new JsonResponse($products);
+//        // ... do something, like pass the $product object into a template
+    }
     /**
      * @Route("/drag_n_drop", name="drag_n_drop")
      *
@@ -785,7 +806,9 @@ $name="";
             ->test();
 //['brokers'=>$products]
 
-
+        $isDefault= $this->getDoctrine()
+            ->getRepository('BrokersBundle:BrokerCountryCoin')
+            ->findAll();
 //        $brokersOrder = $this->getDoctrine()
 //            ->getRepository('BrokersBundle:BrokersArray')
 //             ->findAll();
@@ -814,13 +837,14 @@ $name="";
 //        dump($array);
 //        dump($brokersObjects);
         $jsonBrokers = $serializer->serialize($brokersObjects, 'json');
+$jsonDefault = $serializer->serialize($isDefault, 'json');
+
+//$test = isDefault();
+dump($jsonDefault);
 
 
 
-
-
-
-        return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonBrokers,'brokers' => $brokersObjects));
+        return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonBrokers,'brokers' => $brokersObjects,'defaultSerialized' => $jsonDefault));
     }
 
 

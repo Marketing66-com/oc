@@ -47,4 +47,21 @@ WITH broker.name = coin.parent
         //return $query->execute();
         return $products;
     }
+
+
+    public function isDefault()
+    {
+        $em = $this->getEntityManager();
+
+
+
+
+        $products = $query2->getResult();
+        dump($products);
+
+
+
+        //return $query->execute();
+        return $products;
+    }
 }
