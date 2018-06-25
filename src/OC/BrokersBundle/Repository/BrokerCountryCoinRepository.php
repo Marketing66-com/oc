@@ -53,7 +53,45 @@ WITH broker.name = coin.parent
     {
         $em = $this->getEntityManager();
 
+        $query2 = $em->createQuery(
+            'SELECT coin.id, coin.name, 
+ COALESCE(coin.link,broker.link, parent.link)
+AS link,
+CASE WHEN coin.link IS NULL THEN true ELSE false END
+AS link_default,
 
+COALESCE(coin.logo,broker.logo, parent.logo)
+AS logo,
+CASE WHEN coin.logo IS NULL THEN true ELSE false END
+AS logo_default,
+
+
+COALESCE(coin.crypto, broker.crypto, parent.crypto)
+AS crypto,
+CASE WHEN coin.crypto IS NULL THEN true ELSE false END
+AS crypto_default,
+
+COALESCE(coin.review,broker.review, parent.review)
+AS review,
+CASE WHEN coin.review IS NULL THEN true ELSE false END
+AS review_default,
+
+COALESCE(coin.score,broker.score, parent.score)
+AS score,
+CASE WHEN coin.score IS NULL THEN true ELSE false END
+AS score_default,
+
+COALESCE(coin.displayName, broker.displayName, parent.displayName)
+AS displayName,
+CASE WHEN coin.displayName IS NULL THEN true ELSE false END
+AS displayName_default
+
+ FROM BrokersBundle:BrokerCountryCoin coin 
+  JOIN BrokersBundle:BrokerPays broker 
+WITH broker.name = coin.parent
+ JOIN BrokersBundle:GlobalParent parent 
+ WITH parent.name = broker.parent
+');
 
 
         $products = $query2->getResult();
@@ -61,7 +99,7 @@ WITH broker.name = coin.parent
 
 
 
-        //return $query->execute();
         return $products;
+
     }
 }

@@ -7,7 +7,7 @@
 
 
 
-<div  ng-app="demo" ng-controller="SimpleDemoController"   ng-init="init( {{ brokersSerialized}},{{ defaultSerialized}} )" >
+<div  ng-app="demo" ng-controller="SimpleDemoController"   ng-init="init( {{ brokersSerialized}},{{ defaultSerialized}},{{ all_with_default }} )" >
     <div  ng-controller="myCtrl2">
         <select ng-model="selectedName" ng-options="x for x in names" >
         </select>
@@ -34,10 +34,10 @@
 
         <td>
 
-            <span ng-show="logoIsDefault(broker.id,'logo') && broker.editMode">
-              <input type="checkbox" ng-model="broker.logodefault">
-                DEFAULT: {[{broker.logo}]}
-            </span>
+            {#<span ng-show="logoIsDefault(broker.id,'logo') && broker.editMode">#}
+              {#<input type="checkbox" ng-model="broker.logodefault">#}
+                {#DEFAULT: {[{broker.logo}]}#}
+            {#</span>#}
             <img  src="{{ asset('{[{broker.logo}]}') }}" style="height: 50px;width: 75px;">
 
 <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
@@ -75,10 +75,10 @@
             {#<!--<input type="file" id="file" name="file"/>-->#}
 {#<!--<button ng-click="addImage()">Add</button>-->#}
 {#<!--</div>-->#}
-            <span ng-show="logoIsDefault(broker.id,'crypto') && broker.editMode">
-                 <input type="checkbox" ng-model="broker.cryptodefault">
-                DEFAULT: {[{broker.crypto}]}
-            </span>
+            {#<span ng-show="logoIsDefault(broker.id,'crypto') && broker.editMode">#}
+                 {#<input type="checkbox" ng-model="broker.cryptodefault">#}
+                {#DEFAULT: {[{broker.crypto}]}#}
+            {#</span>#}
             <img  src="{{ asset('{[{broker.crypto}]}') }}" style="height: 50px;width: 75px;">
 
             <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
@@ -99,13 +99,16 @@
 
         </td>
         <td >
-            <span ng-show="logoIsDefault(broker.id,'score') && broker.editMode">
-                 <input type="radio" ng-model="broker.scoredefault" name="radiogroup">
-                DEFAULT: {[{broker.score}]}
+            <span ng-show="broker.editMode">
+                 <input  ng-change="hello('1',broker.radio_score_default)" type="radio"  ng-value="true" ng-model="broker.radio_score_default" >
+                DEFAULT: {[{broker.score_default_value}]}
             </span>
-            <span ng-hide="broker.editMode">  {[{broker.score}]}</span>
-            <input ng-show="logoIsDefault(broker.id,'score') && broker.editMode" type="radio" name="radiogroup" ng-model="broker.scorecustom" >
-                  <input ng-disabled="broker.scoredefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.userScore" placeholder=  {[{broker.score}]} required="" />
+            <span ng-hide="broker.editMode">  {[{broker.score}]}
+                 </span>
+<br>
+
+            <input  ng-change="hello('2',broker.radio_score_default)" ng-show="broker.editMode" type="radio"  ng-value="false" ng-model="broker.radio_score_default" >
+    <input ng-disabled="broker.radio_score_default" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.userScore" placeholder=  {[{broker.score}]} required="" />
 
         </td>
 
@@ -130,24 +133,26 @@
 
 
         <td>
-            <span ng-show="logoIsDefault(broker.id,'review') && broker.editMode">
-                 <input type="radio" ng-model="broker.reviewdefault" name="radiogroup2">
-                DEFAULT: {[{broker.review}]}
+            <span ng-show=" broker.editMode">
+                 <input type="radio" ng-value=true ng-model="broker.radio_review_default" >
+                DEFAULT: {[{broker.review_default_value}]}
             </span>
             <a href={[{broker.review}]} >Read review</a>
-            <input ng-show="logoIsDefault(broker.id,'review') && broker.editMode" type="radio" ng-model="broker.reviewcustom" name="radiogroup2">
-                  <input  ng-disabled="broker.reviewdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.reviewLink" placeholder=  {[{broker.review}]} required="" />
+            <br>
+            <input ng-show=" broker.editMode" type="radio" ng-value=false ng-model="broker.radio_review_default" >
+                  <input ng-disabled="broker.radio_review_default" ng-disabled="broker.reviewdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.reviewLink" placeholder=  {[{broker.review}]} required="" />
 
         </td>
 
         <td >
-            <span ng-show="logoIsDefault(broker.id,'link') && broker.editMode">
-                 <input type="radio" ng-model="broker.linkdefault" name="radiogroup3">
-                DEFAULT: {[{broker.link}]}
+            <span ng-show="broker.editMode">
+                 <input type="radio" ng-value=true ng-model="broker.radio_link_default" >
+                DEFAULT: {[{broker.link_default_value}]}
             </span>
             <a href={[{broker.link}]} >Vist site</a>
-            <input ng-show="logoIsDefault(broker.id,'link') && broker.editMode" type="radio" name="radiogroup3" ng-model="broker.linkcustom">
-                  <input  ng-disabled="broker.linkdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.siteLink" placeholder=  {[{broker.link}]} required="" />
+            <br>
+            <input ng-show="broker.editMode" type="radio"  ng-value=false ng-model="broker.radio_link_default">
+                  <input ng-disabled="broker.radio_link_default" ng-disabled="broker.linkdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.siteLink" placeholder=  {[{broker.link}]} required="" />
 
 
         </td>

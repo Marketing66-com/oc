@@ -9,14 +9,121 @@ demo.controller("SimpleDemoController", function($scope,$http) {
     $scope.active = null
     $scope.brokers
    $scope.defaults
+    $scope.radio =
+    {
+        score: {
+            by_default :  "radio_score_default",
+            custom: "radio_score_custom"
+        },
 
-    $scope.init = function(brokers,mydefault){
-        console.log(mydefault)
-        console.log(typeof brokers)
-        console.log( brokers)
-        $scope.brokers = brokers
-        console.log("list1",$scope.brokers)
+        link: {
+            by_default :  "radio_link_default",
+            custom: "radio_link_custom"
+        },
+
+        review: {
+            by_default :  "radio_review_default",
+            custom: "radio_review_custom"
+        }
+    }
+
+    $scope.brokerProperties =
+        {
+
+
+            score:
+                {
+                    property:"score",
+                    by_default:"score_default",
+                    display: "score_default_value"
+                },
+            link:
+                {
+                    property:"link",
+                    by_default:"link_default",
+                    display: "link_default_value"
+                },
+            review:
+                {
+                    property:"review",
+                    by_default:"review_default",
+                    display: "review_default_value"
+                },
+
+            crypto:
+                {
+                    property:"crypto",
+                    by_default:"crypto_default",
+                    display: "crypto_default_value"
+                },
+            logo:
+                {
+                    property:"logo",
+                    by_default:"logo_default",
+                    display: "logo_default_value"
+                },
+
+
+
+        }
+    //
+    //    ,
+    //     "radio_review_default",
+    //     "radio_review_custom",
+    //     "radio_link_default",
+    //     "radio_link_custom",
+    // }
+
+    $scope.init = function(brokers,mydefault,all_with_default){
+
+
+        $scope.brokers = all_with_default
+        console.log("ng init ",all_with_default)
        $scope.defaults = mydefault
+
+        for(let i=0; i<all_with_default.length;i++)
+        {
+            var current_broker = all_with_default[i]
+            for (const key in $scope.brokerProperties) {
+                var default_property = $scope.brokerProperties[key].by_default
+                var display_property = $scope.brokerProperties[key].display
+var property = $scope.brokerProperties[key].property
+               if(current_broker[default_property] == 0 )//if the property isn't set by default
+               {
+
+                   if($scope.radio.hasOwnProperty(key))
+                   {
+                       console.log("not default key",key)
+                       var radio_default_property = $scope.radio[key].by_default
+
+                       current_broker[radio_default_property] = false
+                       console.log("display",display_property)
+                       current_broker[display_property] = "set default value"
+                       // var radio_custom_property = $scope.radio[key].custom
+                       // current_broker[radio_custom_property] = true
+
+                   }
+               }
+               else
+               {
+                   if($scope.radio.hasOwnProperty(key))
+                   {
+                       console.log("by default  key",key)
+                       var radio_default_property = $scope.radio[key].by_default
+                      // var display_property = $scope.radio[key].display
+                       current_broker[radio_default_property] = true
+                       console.log("display",display_property)
+                       current_broker[display_property] = current_broker[property]
+                       // var radio_custom_property = $scope.radio[key].custom
+                       // current_broker[radio_custom_property] = false
+                   }
+               }
+            }
+            current_broker.is_default = true
+console.log(current_broker)
+        }
+       // $scope.$apply()
+
     }
 
     $scope.sortableOptions = {
@@ -89,17 +196,26 @@ demo.controller("SimpleDemoController", function($scope,$http) {
     }
 
     //cancel
-    $scope.cancel = function(user,index) {
+    $scope.cancel = function(broker,index) {
         //getAllUsers();
-        if(isUserEmpty(user))
+        if(isUserEmpty(broker))
         {
-            deleteRow(user,index)
+            deleteRow(broker,index)
             return
         }
-        var temp = user.editing
+console.log("cancel broker",broker.radio_score_default)
+
+        for(let i=0; i<$scope.radio.length;i++)
+        {
+
+            broker[$scope.radio[i]] = false
+        }
+
+
+        var temp = broker.editing
         // user.editing.editMode=false
         temp.editMode=false
-        copyUser(user,temp)
+        copyUser(broker,temp)
 
 
         //  console.log("user after cancel ", $scope.list1 )
@@ -180,16 +296,23 @@ console.log("user to add",user)
 
 $scope.logoIsDefault = function (id,parameter)
 {
-    console.log("in",id,parameter)
+  //  console.log("in",id,parameter)
     for(let i=0; i<$scope.defaults.length;i++)
     {
         if($scope.defaults[i].id == id)
         {
-            console.log("default item",parameter,$scope.defaults[i][parameter])
+           // console.log("default item",parameter,$scope.defaults[i][parameter])
             if($scope.defaults[i][parameter] == null)
-               return true
+            {
+
+                return true
+            }
+
             else
+            {
                 return false
+            }
+
         }
 
     }
@@ -227,7 +350,10 @@ $scope.logoIsDefault = function (id,parameter)
         delete user.editing;
     }
 
-
+$scope.hello= function(a,b)
+    {
+        console.log("change",a,b)
+    }
 });
 
 
