@@ -24,6 +24,11 @@ demo.controller("SimpleDemoController", function($scope,$http) {
         review: {
             by_default :  "radio_review_default",
             custom: "radio_review_custom"
+        },
+
+        logo: {
+            by_default :  "radio_logo_default",
+            custom: "radio_logo_custom"
         }
     }
 
@@ -97,7 +102,7 @@ var property = $scope.brokerProperties[key].property
                        var radio_default_property = $scope.radio[key].by_default
 
                        current_broker[radio_default_property] = false
-                       console.log("display",display_property)
+                       //console.log("display",display_property)
                        current_broker[display_property] = "set default value"
                        // var radio_custom_property = $scope.radio[key].custom
                        // current_broker[radio_custom_property] = true
@@ -112,7 +117,7 @@ var property = $scope.brokerProperties[key].property
                        var radio_default_property = $scope.radio[key].by_default
                       // var display_property = $scope.radio[key].display
                        current_broker[radio_default_property] = true
-                       console.log("display",display_property)
+                       //console.log("display",display_property)
                        current_broker[display_property] = current_broker[property]
                        // var radio_custom_property = $scope.radio[key].custom
                        // current_broker[radio_custom_property] = false
@@ -143,6 +148,8 @@ console.log(current_broker)
         var array = {
             array:temp_brokers
 }
+console.log("saving",array)
+/*
         $.ajax({
             url: "../brokerArray",
             type: "POST",
@@ -156,6 +163,7 @@ console.log(current_broker)
                 console.log("ERROR",thrownError,xhr,ajaxOptions)
             }
         });
+        */
 
     };
 
@@ -236,14 +244,60 @@ console.log("cancel broker",broker.radio_score_default)
     //         });
     // }
 
-    $scope.saveUser = function(user, index) {
-        user.editMode = false;
-        delete user.editing;
+    $scope.saveUser = function(broker, index) {
+        broker.editMode = false;
+        delete broker.editing;
 
 
-console.log("user to add",user)
+console.log("user to add",broker)
                // formData.append("broker", user);
-        var object_to_send={user:user}
+var broker_to_send = {}
+
+        for (const key in $scope.brokerProperties) {
+
+            var property = $scope.brokerProperties[key].property
+
+                if($scope.radio.hasOwnProperty(key))
+                {
+
+                    var radio_default_property = $scope.radio[key].by_default
+
+                    var isDefault = broker[radio_default_property]
+
+                    if(isDefault == true) {
+                       console.log("not adding the followinfg property",key)
+                    }
+
+                    else {
+                        broker_to_send[key] = broker[key]
+                    }
+                }
+
+
+            }
+
+            console.log(" broker_to_send", broker_to_send)
+        broker_to_send.id = broker.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var object_to_send={user:broker_to_send}
         $.ajax({
             url: "../test/updateOrCreate",
             type: "POST",
@@ -251,8 +305,8 @@ console.log("user to add",user)
             dataType: "json",
             success: function (result) {
                 console.log("Response",result)
-                if(!user.hasOwnProperty("id"))
-                    user.id = result
+                if(!broker.hasOwnProperty("id"))
+                    broker.id = result
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR",thrownError,xhr,ajaxOptions)
@@ -282,7 +336,7 @@ console.log("user to add",user)
         //
         //         return false;
         //     });
-        console.log("saving",user)
+       // console.log("saving",broker)
     }
 
     $scope.addNew = function() {

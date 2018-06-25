@@ -21,12 +21,7 @@ class BrokerCountryCoin
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=25, nullable=false)
-     */
-    private $name;
+
 
     /**
      * @var string|null
@@ -63,12 +58,7 @@ class BrokerCountryCoin
      */
     private $crypto;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="display_name", type="string", length=25, nullable=true)
-     */
-    private $displayName;
+
 
     /**
      * @var string|null
@@ -89,29 +79,6 @@ class BrokerCountryCoin
         return $this->id;
     }
 
-    /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return BrokerCountryCoin
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set logo.
@@ -233,30 +200,7 @@ class BrokerCountryCoin
         return $this->crypto;
     }
 
-    /**
-     * Set displayName.
-     *
-     * @param string|null $displayName
-     *
-     * @return BrokerCountryCoin
-     */
-    public function setDisplayName($displayName = null)
-    {
-        $this->displayName = $displayName;
-
-        return $this;
-    }
-
-    /**
-     * Get displayName.
-     *
-     * @return string|null
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
-
+    
     /**
      * Set parent.
      *
@@ -279,5 +223,10 @@ class BrokerCountryCoin
     public function getParent()
     {
         return $this->parent;
+    }
+
+    public function setAny($property,$value)
+    {
+        $this->{$property} = $value;
     }
 }

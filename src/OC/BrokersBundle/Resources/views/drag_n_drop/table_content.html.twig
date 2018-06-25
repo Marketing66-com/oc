@@ -38,9 +38,13 @@
               {#<input type="checkbox" ng-model="broker.logodefault">#}
                 {#DEFAULT: {[{broker.logo}]}#}
             {#</span>#}
-            <img  src="{{ asset('{[{broker.logo}]}') }}" style="height: 50px;width: 75px;">
+           <span ng-show="broker.editMode">default</span> <input  ng-change="hello('2',broker.radio_score_default)" ng-show="broker.editMode" type="radio"  ng-value="true" ng-model="broker.radio_logo_default" >
 
-<div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
+            <img  src="{{ asset('{[{broker.logo}]}') }}" style="height: 50px;width: 75px;">
+            <input  ng-change="hello('2',broker.radio_score_default)" ng-show="broker.editMode" type="radio"  ng-value="false" ng-model="broker.radio_logo_default" >
+
+
+            <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
     <div class="panel-body">
         <form enctype="multipart/form-data" method="POST" id="fileFormLogo" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'logo')">
             <div class="form-group">
@@ -79,11 +83,12 @@
                  {#<input type="checkbox" ng-model="broker.cryptodefault">#}
                 {#DEFAULT: {[{broker.crypto}]}#}
             {#</span>#}
+
             <img  src="{{ asset('{[{broker.crypto}]}') }}" style="height: 50px;width: 75px;">
 
             <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
                 <div class="panel-body">
-                    <form enctype="multipart/form-data" method="POST" id="fileFormcryptoImage" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'cryptoImage')">
+                    <form enctype="multipart/form-data" method="POST" id="fileFormcryptoImage" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'crypto')">
                         <div class="form-group">
                             <label for="file">Select a file: </label>
                             <input type="file" name="file" class="form-control" id="filecryptoImage" ng-files="getTheFiles($theFiles)" />
@@ -108,7 +113,7 @@
 <br>
 
             <input  ng-change="hello('2',broker.radio_score_default)" ng-show="broker.editMode" type="radio"  ng-value="false" ng-model="broker.radio_score_default" >
-    <input ng-disabled="broker.radio_score_default" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.userScore" placeholder=  {[{broker.score}]} required="" />
+    <input ng-disabled="broker.radio_score_default" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.score" placeholder=  {[{broker.score}]} required="" />
 
         </td>
 
@@ -140,7 +145,7 @@
             <a href={[{broker.review}]} >Read review</a>
             <br>
             <input ng-show=" broker.editMode" type="radio" ng-value=false ng-model="broker.radio_review_default" >
-                  <input ng-disabled="broker.radio_review_default" ng-disabled="broker.reviewdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.reviewLink" placeholder=  {[{broker.review}]} required="" />
+                  <input ng-disabled="broker.radio_review_default" ng-disabled="broker.reviewdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.review" placeholder=  {[{broker.review}]} required="" />
 
         </td>
 
@@ -152,7 +157,7 @@
             <a href={[{broker.link}]} >Vist site</a>
             <br>
             <input ng-show="broker.editMode" type="radio"  ng-value=false ng-model="broker.radio_link_default">
-                  <input ng-disabled="broker.radio_link_default" ng-disabled="broker.linkdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.siteLink" placeholder=  {[{broker.link}]} required="" />
+                  <input ng-disabled="broker.radio_link_default" ng-disabled="broker.linkdefault" type="text" name="name" ng-show="broker.editMode" class="form-control" ng-model="broker.link" placeholder=  {[{broker.link}]} required="" />
 
 
         </td>

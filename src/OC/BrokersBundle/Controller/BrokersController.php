@@ -3,6 +3,7 @@
 namespace OC\BrokersBundle\Controller;
 
 use OC\BrokersBundle\Entity\Broker;
+use OC\BrokersBundle\Entity\BrokerCountryCoin;
 use OC\BrokersBundle\Entity\BrokerPays;
 use OC\BrokersBundle\Entity\BrokersArray;
 use OC\BrokersBundle\Entity\GlobalParent;
@@ -606,7 +607,7 @@ $temp = 0;
 
 
 
-        $broker = new Broker();
+        $broker = new BrokerCountryCoin();
 
 
 
@@ -628,19 +629,19 @@ $temp = 0;
 
        //$id = $_POST['id'];
        // $product = $em->getRepository(BrokersArray::class)->find($id);
-        $product = $em->getRepository(BrokersArray::class)->findAll();
+       // $product = $em->getRepository(BrokersArray::class)->findAll();
 //        if (!$product) {
 //            throw $this->createNotFoundException(
 //                'No product found for id '.$id
 //            );
 //        }
-        $last = $product[count($product)-1];
+      //  $last = $product[count($product)-1];
         //$product->setArray($temp);
-       $array =  $last->getArray2();
-       // $product->setArray3($temp);
-        array_push($array,$broker->getName());
-        $last->setArray2($array);
-        $em->flush();
+     //  $array =  $last->getArray2();
+       /// $product->setArray3($temp);
+      //  array_push($array,$broker->getName());
+      //  $last->setArray2($array);
+      //  $em->flush();
 
 
 
@@ -682,7 +683,7 @@ $temp = 0;
 
         $id = $_POST['user']["id"];
         $em = $this->getDoctrine()->getManager();
-        $broker= $em->getRepository(Broker::class)->find($id);
+        $broker= $em->getRepository(BrokerCountryCoin::class)->find($id);
 
 
 
@@ -800,9 +801,9 @@ $name="";
 
 
         $serializer = $this->get('serializer');
-        $brokersObjects = $this->getDoctrine()
-            ->getRepository('BrokersBundle:BrokerCountryCoin')
-            ->test();
+       // $brokersObjects = $this->getDoctrine()
+           // ->getRepository('BrokersBundle:BrokerCountryCoin')
+          //  ->test();
 //['brokers'=>$products]
 
         $isDefault= $this->getDoctrine()
@@ -841,7 +842,7 @@ $name="";
 //        }
 //        dump($array);
 //        dump($brokersObjects);
-        $jsonBrokers = $serializer->serialize($brokersObjects, 'json');
+       // $jsonBrokers = $serializer->serialize($brokersObjects, 'json');
 $jsonDefault = $serializer->serialize($isDefault, 'json');
 $jsonAll = $serializer->serialize($all_with_default, 'json');
 //$test = isDefault();
@@ -849,7 +850,7 @@ dump($jsonDefault);
 
 
 
-        return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonBrokers,'brokers' => $brokersObjects,'defaultSerialized' => $jsonDefault , 'all_with_default' => $jsonAll));
+        return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonDefault,'brokers' => $jsonDefault,'defaultSerialized' => $jsonDefault , 'all_with_default' => $jsonAll));
     }
 
 
