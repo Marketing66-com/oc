@@ -44,14 +44,14 @@
             <input  ng-change="hello('2',broker.radio_score_default)" ng-show="broker.editMode" type="radio"  ng-value="false" ng-model="broker.radio_logo_default" >
 
 
-            <div ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
+            <div  ng-show="broker.editMode" class="panel panel-default" ng-controller="FileUploadController">
     <div class="panel-body">
         <form enctype="multipart/form-data" method="POST" id="fileFormLogo" name="fileForm" action="{{ path('test_upload_file_post') }}" ng-submit="uploadTheFiles($event,broker,'logo')">
             <div class="form-group">
                 <label for="file">Select a file: </label>
-                <input type="file" name="file" class="form-control" id="fileLogo" ng-files="getTheFiles($theFiles)" />
+                <input  ng-disabled="broker.radio_logo_default" type="file" name="file" class="form-control" id="fileLogo" ng-files="getTheFiles($theFiles)" />
             </div>
-            <button type="submit" class="btn btn-primary">try Upload File</button>
+            <button ng-disabled="broker.radio_logo_default" type="submit" class="btn btn-primary">try Upload File</button>
         </form>
     </div>
 </div>

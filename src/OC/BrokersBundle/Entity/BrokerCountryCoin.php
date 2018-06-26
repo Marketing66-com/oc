@@ -26,21 +26,21 @@ class BrokerCountryCoin
     /**
      * @var string|null
      *
-     * @ORM\Column(name="logo", type="string", length=25, nullable=true)
+     * @ORM\Column(name="logo", type="string", length=200, nullable=true)
      */
     private $logo;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="review", type="string", length=25, nullable=true)
+     * @ORM\Column(name="review", type="string", length=200, nullable=true)
      */
     private $review;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="link", type="string", length=25, nullable=true)
+     * @ORM\Column(name="link", type="string", length=200, nullable=true)
      */
     private $link;
 
@@ -54,7 +54,7 @@ class BrokerCountryCoin
     /**
      * @var string|null
      *
-     * @ORM\Column(name="crypto", type="string", length=25, nullable=true)
+     * @ORM\Column(name="crypto", type="string", length=200, nullable=true)
      */
     private $crypto;
 
@@ -63,7 +63,7 @@ class BrokerCountryCoin
     /**
      * @var string|null
      *
-     * @ORM\Column(name="parent", type="string", length=25, nullable=true)
+     * @ORM\Column(name="parent", type="string", length=200, nullable=true)
      */
     private $parent;
 
@@ -200,7 +200,7 @@ class BrokerCountryCoin
         return $this->crypto;
     }
 
-    
+
     /**
      * Set parent.
      *

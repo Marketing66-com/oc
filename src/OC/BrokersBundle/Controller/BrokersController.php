@@ -6,6 +6,7 @@ use OC\BrokersBundle\Entity\Broker;
 use OC\BrokersBundle\Entity\BrokerCountryCoin;
 use OC\BrokersBundle\Entity\BrokerPays;
 use OC\BrokersBundle\Entity\BrokersArray;
+use OC\BrokersBundle\Entity\BrokersOrderArray;
 use OC\BrokersBundle\Entity\GlobalParent;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -596,6 +597,88 @@ $temp = 0;
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * @Route("/brokerArray2", name="brokerArray2")
+     * @Method("POST")
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function brokerArray2Action(Request $request) {
+
+
+        $brokers_array = new BrokersOrderArray();
+        $temp = $_POST['array'];
+        //   $id = $_POST['id'];
+//
+//        $brokers_array->setArray($temp);
+//        $brokers_array->setArray2($temp);
+//        $brokers_array->setArray3($temp);
+
+
+
+        $em = $this->getDoctrine()->getManager();
+        //  $product = $em->getRepository(BrokersArray::class)->find($id);
+        $product = $em->getRepository(BrokersOrderArray::class)->findAll();
+        if(!$product)
+        {
+            $last = new BrokersOrderArray();
+        }
+        else
+        {
+            $last = $product[count($product)-1];
+        }
+
+
+//        if (!$product) {
+//            throw $this->createNotFoundException(
+//                'No product found for id '.$id
+//            );
+//        }
+
+        $last->setArray($temp);
+
+        $em->persist($last);
+        $em->flush();
+
+
+
+//        $em = $this->getDoctrine()->getManager();
+//
+//        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+//        $em->persist($brokers_array);
+//
+//        // actually executes the queries (i.e. the INSERT query)
+//        $em->flush();
+        $pieces = explode(" ", $temp);
+        return new JsonResponse($pieces);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @Route("/createBroker", name="createBroker")
      * @Method("POST")
@@ -654,7 +737,6 @@ $temp = 0;
 
 
 
-
     /**
      * @Route("/test/updateOrCreate", name="test_update")
      * @Method("POST")
@@ -689,6 +771,10 @@ $temp = 0;
 
         foreach( $_POST['user'] as $stuff => $val  ) {
             if( property_exists($broker, $stuff)) {
+                if($val == 'null')
+                {
+                    $val = NULL;
+                }
                 $broker->setAny($stuff, $val);
 
                 }

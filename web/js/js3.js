@@ -12,23 +12,19 @@ demo.controller("SimpleDemoController", function($scope,$http) {
     $scope.radio =
     {
         score: {
-            by_default :  "radio_score_default",
-            custom: "radio_score_custom"
+            by_default :  "radio_score_default"
         },
 
         link: {
-            by_default :  "radio_link_default",
-            custom: "radio_link_custom"
+            by_default :  "radio_link_default"
         },
 
         review: {
-            by_default :  "radio_review_default",
-            custom: "radio_review_custom"
+            by_default :  "radio_review_default"
         },
 
         logo: {
-            by_default :  "radio_logo_default",
-            custom: "radio_logo_custom"
+            by_default :  "radio_logo_default"
         }
     }
 
@@ -83,7 +79,7 @@ demo.controller("SimpleDemoController", function($scope,$http) {
 
 
         $scope.brokers = all_with_default
-        console.log("ng init ",all_with_default)
+    //    console.log("ng init ",all_with_default)
        $scope.defaults = mydefault
 
         for(let i=0; i<all_with_default.length;i++)
@@ -98,7 +94,7 @@ var property = $scope.brokerProperties[key].property
 
                    if($scope.radio.hasOwnProperty(key))
                    {
-                       console.log("not default key",key)
+                   //    console.log("not default key",key)
                        var radio_default_property = $scope.radio[key].by_default
 
                        current_broker[radio_default_property] = false
@@ -110,10 +106,10 @@ var property = $scope.brokerProperties[key].property
                    }
                }
                else
-               {
+                   {
                    if($scope.radio.hasOwnProperty(key))
                    {
-                       console.log("by default  key",key)
+                      // console.log("by default  key",key)
                        var radio_default_property = $scope.radio[key].by_default
                       // var display_property = $scope.radio[key].display
                        current_broker[radio_default_property] = true
@@ -140,18 +136,23 @@ console.log(current_broker)
 
     $scope.save = function() {
 
-        console.log("finished",$scope.brokers)
+      //  console.log("finished",$scope.brokers)
         var temp_brokers = []
         angular.forEach($scope.brokers, function(value, key) {
-            temp_brokers.push(value.name);
+            temp_brokers.push(value.id);
         });
         var array = {
             array:temp_brokers
 }
-console.log("saving",array)
-/*
+var str = temp_brokers.toString()
+
+        var array = {
+            array:str
+        }
+console.log("saving",array  )
+
         $.ajax({
-            url: "../brokerArray",
+            url: "../brokerArray2",
             type: "POST",
             data: array,
             dataType: "json",
@@ -163,7 +164,7 @@ console.log("saving",array)
                 console.log("ERROR",thrownError,xhr,ajaxOptions)
             }
         });
-        */
+
 
     };
 
@@ -213,11 +214,11 @@ console.log("saving",array)
         }
 console.log("cancel broker",broker.radio_score_default)
 
-        for(let i=0; i<$scope.radio.length;i++)
-        {
-
-            broker[$scope.radio[i]] = false
-        }
+        // for(let i=0; i<$scope.radio.length;i++)
+        // {
+        //
+        //     broker[$scope.radio[i]] = false
+        // }
 
 
         var temp = broker.editing
@@ -249,7 +250,7 @@ console.log("cancel broker",broker.radio_score_default)
         delete broker.editing;
 
 
-console.log("user to add",broker)
+//console.log("user to add",broker)
                // formData.append("broker", user);
 var broker_to_send = {}
 
@@ -265,7 +266,8 @@ var broker_to_send = {}
                     var isDefault = broker[radio_default_property]
 
                     if(isDefault == true) {
-                       console.log("not adding the followinfg property",key)
+                        broker_to_send[key] = "null"
+                        broker[key] = "default"
                     }
 
                     else {
@@ -377,7 +379,7 @@ $scope.logoIsDefault = function (id,parameter)
     function isUserEmpty(user)
     {
 
-        if(user.hasOwnProperty("name"))
+        if(user.hasOwnProperty("id"))
             return false
         return true
     }
