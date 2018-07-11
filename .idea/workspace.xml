@@ -4,6 +4,7 @@
     <list default="true" id="ab0038cc-34d7-411f-8870-dc383519e68f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OC/BrokersBundle/Controller/BrokersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/BrokersBundle/Controller/BrokersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,26 +21,47 @@
       <file leaf-file-name="BrokersController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Controller/BrokersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="128" column="30" selection-start-line="128" selection-start-column="30" selection-end-line="128" selection-end-column="30" />
+            <state relative-caret-position="620">
+              <caret line="946" column="5" lean-forward="true" selection-start-line="946" selection-start-column="5" selection-end-line="946" selection-end-column="5" />
+              <folding>
+                <element signature="e#47#82#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/default.html.twig">
+      <file leaf-file-name="table_template.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_template.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="609">
+              <caret line="35" column="106" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="106" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="broker.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/broker.html.twig">
+      <file leaf-file-name="table_content.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_content.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="21" />
+            <state relative-caret-position="189">
+              <caret line="9" column="94" selection-start-line="9" selection-start-column="77" selection-end-line="9" selection-end-column="94" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrokerCountryCoinRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrokerPaysRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerPaysRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1848">
+              <caret line="96" column="12" lean-forward="true" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -48,9 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>view</find>
-      <find>oc_platform_view</find>
-      <find>locale</find>
       <find>CoreBundle</find>
       <find>request</find>
       <find>Brokers/ETH</find>
@@ -76,6 +95,11 @@
       <find>showparentBrokers</find>
       <find>appl</find>
       <find>createBroker</find>
+      <find>test_upload_file_post</find>
+      <find>drag_n_drop</find>
+      <find>serializer</find>
+      <find>array</find>
+      <find>parent</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -121,13 +145,11 @@
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/menu.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_template.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_content.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/js3.js" />
         <option value="$PROJECT_DIR$/src/OC/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Repository/GlobalParentRepository.php" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Entity/GlobalParent.php" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokerCountryCoin.php" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokerPays.php" />
-        <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php" />
         <option value="$PROJECT_DIR$/src/OC/OCFeedsBundle/Controller/OCFeedsController.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
@@ -140,7 +162,9 @@
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerPaysRepository.php" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/default.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/broker.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/js3.js" />
         <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Controller/BrokersController.php" />
+        <option value="$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php" />
       </list>
     </option>
   </component>
@@ -219,8 +243,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-76" />
-    <option name="y" value="1" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -272,6 +296,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="OC" type="462c0819:PsiDirectoryNode" />
               <item name="BrokersBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="OC" type="462c0819:PsiDirectoryNode" />
+              <item name="BrokersBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -280,6 +312,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="OC" type="462c0819:PsiDirectoryNode" />
               <item name="BrokersBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="OC" type="462c0819:PsiDirectoryNode" />
+              <item name="BrokersBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -290,16 +330,6 @@
               <item name="BrokersBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="OC" type="462c0819:PsiDirectoryNode" />
-              <item name="BrokersBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Default" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
@@ -314,14 +344,13 @@
             <path>
               <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="OC" type="462c0819:PsiDirectoryNode" />
-              <item name="FeedsBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Symfony" type="b2602c69:ProjectViewProjectNode" />
               <item name="Symfony" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -332,7 +361,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/m66 for mail" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -564,17 +593,98 @@
       <workItem from="1528954528264" duration="708000" />
       <workItem from="1528956650166" duration="742000" />
       <workItem from="1528972617452" duration="247000" />
+      <workItem from="1530164492859" duration="642000" />
+      <workItem from="1530165465490" duration="904000" />
+      <workItem from="1530167267992" duration="701000" />
+      <workItem from="1530169484368" duration="1304000" />
+      <workItem from="1530171516066" duration="598000" />
+      <workItem from="1530173353216" duration="620000" />
+      <workItem from="1530175229501" duration="599000" />
+      <workItem from="1530178694765" duration="601000" />
+      <workItem from="1530180505156" duration="1320000" />
+      <workItem from="1530183187714" duration="606000" />
+      <workItem from="1530185031309" duration="594000" />
+      <workItem from="1530425415737" duration="1316000" />
+      <workItem from="1530427284137" duration="689000" />
+      <workItem from="1530429091757" duration="713000" />
+      <workItem from="1530430899975" duration="1518000" />
+      <workItem from="1530432760796" duration="896000" />
+      <workItem from="1530434591484" duration="813000" />
+      <workItem from="1530436395965" duration="958000" />
+      <workItem from="1530438206620" duration="1786000" />
+      <workItem from="1530440218129" duration="1309000" />
+      <workItem from="1530442025612" duration="595000" />
+      <workItem from="1530443839955" duration="597000" />
+      <workItem from="1530511567783" duration="596000" />
+      <workItem from="1530513373417" duration="595000" />
+      <workItem from="1530515327032" duration="596000" />
+      <workItem from="1530517865063" duration="1514000" />
+      <workItem from="1530519670282" duration="596000" />
+      <workItem from="1530521668175" duration="908000" />
+      <workItem from="1530523737449" duration="1048000" />
+      <workItem from="1530525545080" duration="596000" />
+      <workItem from="1530527353779" duration="596000" />
+      <workItem from="1530529166285" duration="596000" />
+      <workItem from="1530530975635" duration="596000" />
+      <workItem from="1530598062238" duration="1643000" />
+      <workItem from="1530599929296" duration="595000" />
+      <workItem from="1530601769902" duration="596000" />
+      <workItem from="1530615143363" duration="1012000" />
+      <workItem from="1530616981621" duration="596000" />
+      <workItem from="1530618827203" duration="595000" />
+      <workItem from="1530684237480" duration="592000" />
+      <workItem from="1530687499110" duration="598000" />
+      <workItem from="1530689824825" duration="596000" />
+      <workItem from="1530692993698" duration="597000" />
+      <workItem from="1530694811612" duration="598000" />
+      <workItem from="1530696895761" duration="598000" />
+      <workItem from="1530701544712" duration="598000" />
+      <workItem from="1530703350873" duration="600000" />
+      <workItem from="1530705877473" duration="596000" />
+      <workItem from="1530707687788" duration="599000" />
+      <workItem from="1530709492948" duration="599000" />
+      <workItem from="1530711360744" duration="598000" />
+      <workItem from="1530713181460" duration="597000" />
+      <workItem from="1530770644165" duration="593000" />
+      <workItem from="1530772493977" duration="598000" />
+      <workItem from="1530774639678" duration="597000" />
+      <workItem from="1530776451555" duration="595000" />
+      <workItem from="1530778256460" duration="597000" />
+      <workItem from="1530780070945" duration="595000" />
+      <workItem from="1530781890150" duration="595000" />
+      <workItem from="1530783750213" duration="596000" />
+      <workItem from="1530785752570" duration="597000" />
+      <workItem from="1530787668730" duration="599000" />
+      <workItem from="1530789473071" duration="598000" />
+      <workItem from="1530791290195" duration="597000" />
+      <workItem from="1531032233727" duration="597000" />
+      <workItem from="1531034043179" duration="1782000" />
+      <workItem from="1531038864398" duration="1514000" />
+      <workItem from="1531046941616" duration="1334000" />
+      <workItem from="1531048744922" duration="1605000" />
+      <workItem from="1531050757880" duration="306000" />
+      <workItem from="1531116362974" duration="1843000" />
+      <workItem from="1531118317382" duration="597000" />
+      <workItem from="1531121920683" duration="595000" />
+      <workItem from="1531123725866" duration="1578000" />
+      <workItem from="1531125762746" duration="598000" />
+      <workItem from="1531130934587" duration="1193000" />
+      <workItem from="1531203888724" duration="595000" />
+      <workItem from="1531206001723" duration="599000" />
+      <workItem from="1531208390841" duration="599000" />
+      <workItem from="1531296365526" duration="1139000" />
+      <workItem from="1531298167050" duration="1760000" />
+      <workItem from="1531299974120" duration="1854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328262000" />
+    <option name="totallyTimeSpent" value="396226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18645833" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.165625" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.21997875" />
@@ -597,21 +707,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2078125" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.165625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.21997875" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -623,27 +733,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/OC/UserBundle/Resources/views/Security/eth_brokers.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="45" selection-end-line="57" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/ws.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="73" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/connect_to_ws.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/UserBundle/Resources/views/Security/drag_and_drop_table.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -679,69 +768,11 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/Broker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5943">
-          <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokersArray.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRpository.php" />
     <entry file="file://$PROJECT_DIR$/src/OC/UserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokersOrderRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="67" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokersArrayRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokersOrder.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/GlobalParent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokerCountryCoin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/GlobalParentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="9" selection-start-line="9" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -752,9 +783,6 @@
     <entry file="file://$PROJECT_DIR$/src/OC/OCFeedsBundle/Controller/DefaultController.php" />
     <entry file="file://$PROJECT_DIR$/src/OC/OCFeedsBundle/Controller/OCFeedsController.php" />
     <entry file="file://$PROJECT_DIR$/src/OC/FeedsBundle/FeedsBundle.php" />
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -762,34 +790,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokerPays.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="70" column="24" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_template.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="47" selection-start-line="47" selection-end-line="50" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/drag_and_drop_js.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/connect.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/uploadFile.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/menu.js">
@@ -803,27 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="26" column="10" selection-end-line="319" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/js3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
@@ -841,20 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerPaysRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3906">
-          <caret line="194" column="47" selection-start-line="194" selection-start-column="47" selection-end-line="194" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="51" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/liveFeeds.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="622">
@@ -862,10 +831,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_content2.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
+        <state relative-caret-position="21">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -878,15 +850,156 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/Default/broker.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="21" />
+        <state relative-caret-position="504">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/uploadFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="55" column="79" lean-forward="true" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokersArray.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokersOrder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokersOrderArray.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="68" column="19" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokerCountryCoin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4767">
+          <caret line="227" column="4" selection-start-line="227" selection-start-column="4" selection-end-line="230" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokersArrayRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokersOrderRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="67" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/GlobalParentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="19" column="9" selection-start-line="15" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/BrokerPays.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="70" column="24" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/js3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1827">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" selection-start-line="4" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/GlobalParent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2373">
+          <caret line="113" column="27" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="27" selection-start-line="3" selection-start-column="3" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Entity/Broker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="283" selection-start-line="283" selection-end-line="283" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerCountryCoinRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Repository/BrokerPaysRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="96" column="12" lean-forward="true" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_template.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="35" column="106" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Resources/views/drag_n_drop/table_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="94" selection-start-line="9" selection-start-column="77" selection-end-line="9" selection-end-column="94" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/BrokersBundle/Controller/BrokersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="128" column="30" selection-start-line="128" selection-start-column="30" selection-end-line="128" selection-end-column="30" />
+        <state relative-caret-position="620">
+          <caret line="946" column="5" lean-forward="true" selection-start-line="946" selection-start-column="5" selection-end-line="946" selection-end-column="5" />
+          <folding>
+            <element signature="e#47#82#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

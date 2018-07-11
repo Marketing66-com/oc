@@ -39,7 +39,7 @@ WITH broker.name = coin.parent
 
 
         $products = $query2->getResult();
-        dump($products);
+        //dump($products);
 
 
 
@@ -91,7 +91,7 @@ WITH broker.name = coin.parent
 
 
         $products = $query2->getResult();
-        dump($products);
+        //dump($products);
 
 
 

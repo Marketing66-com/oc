@@ -44,7 +44,7 @@ class BrokersController extends Controller
     }
 
         /**
-     * @Route("/newBroker", name="newBroker")
+     * @Route("/newBroker", name="newBroker", schemes={"https"})
 
 
      */
@@ -874,7 +874,7 @@ $name="";
 //        // ... do something, like pass the $product object into a template
     }
     /**
-     * @Route("/drag_n_drop", name="drag_n_drop")
+     * @Route("/drag_n_drop", name="drag_n_drop",schemes={"https"})
      *
      *
      *
@@ -901,42 +901,49 @@ $name="";
         $all_with_default = $this->getDoctrine()
             ->getRepository('BrokersBundle:BrokerCountryCoin')
             ->isDefault();
-//        $brokersOrder = $this->getDoctrine()
-//            ->getRepository('BrokersBundle:BrokersArray')
-//             ->findAll();
+        $brokersOrder = $this->getDoctrine()
+            ->getRepository('BrokersBundle:BrokersOrderArray')
+             ->findAll();
 //
 //
-//         $order = $brokersOrder[count($brokersOrder)-1]->getArray2();
+       $orderString = $brokersOrder[count($brokersOrder)-1]->getArray();
+        $orderArray = explode(",", $orderString);
 //
 //
-//        $array =  array();
-//       // dump($order);
-//      //  $neededObject = array();
-//        foreach ($order as $name){
-//
-//            $neededObject = array_filter(
-//                $brokersObjects,
-//                function ($broker) use ($name){
-//                    dump($broker);
-//                    return $broker["name"] == $name;
-//                }
-//            );
-//         //   dump(array_values($neededObject)[0]);
-//            $boker_obj = array_values($neededObject);
-//           // $key = array_filter($brokersObjects, "odd");
-//            array_push($array, $boker_obj[0]);
-//        }
+        $array =  array();
+       // dump($order);
+      //  $neededObject = array();
+        foreach ($orderArray as $id){
+
+            $neededObject = array_filter(
+                $all_with_default,
+                function ($broker) use ($id){
+                    //dump($broker);
+                    return $broker["id"] == $id;
+                }
+            );
+         //   dump(array_values($neededObject)[0]);
+            $boker_obj = array_values($neededObject);
+           // $key = array_filter($brokersObjects, "odd");
+            array_push($array, $boker_obj[0]);
+        }
+        dump($all_with_default);
 //        dump($array);
-//        dump($brokersObjects);
+//        dump($all_with_default);
+        //dump($brokersObjects);
        // $jsonBrokers = $serializer->serialize($brokersObjects, 'json');
+
+
+
 $jsonDefault = $serializer->serialize($isDefault, 'json');
 $jsonAll = $serializer->serialize($all_with_default, 'json');
+$jsonAll2 = $serializer->serialize($array, 'json');
 //$test = isDefault();
-dump($jsonDefault);
+//dump($pieces);
 
 
 
-        return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonDefault,'brokers' => $jsonDefault,'defaultSerialized' => $jsonDefault , 'all_with_default' => $jsonAll));
+        return $this->render('BrokersBundle:drag_n_drop:table_template.html.twig',array('brokersSerialized' => $jsonDefault,'brokers' => $jsonDefault,'defaultSerialized' => $jsonDefault , 'all_with_default' => $jsonAll2));
     }
 
 
