@@ -13,7 +13,9 @@ brokers:
 
 
 
-
+secure:
+    path:     /
+    schemes:  [https]
 
 
 
