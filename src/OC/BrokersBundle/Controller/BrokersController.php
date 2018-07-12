@@ -874,7 +874,7 @@ $name="";
 //        // ... do something, like pass the $product object into a template
     }
     /**
-     * @Route("/drag_n_drop", name="drag_n_drop",schemes={"https"})
+     * @Route("/drag_n_drop", name="drag_n_drop")
      *
      *
      *
